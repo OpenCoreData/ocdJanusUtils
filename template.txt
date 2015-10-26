@@ -1,0 +1,82 @@
+package ngmeasurements
+
+import (
+	"database/sql"
+	"encoding/json"
+	"fmt"
+	"github.com/kisielk/sqlstruct"
+	"gopkg.in/mgo.v2"
+	"log"
+	"opencoredata.org/ocdJanus/utils"
+)
+
+type {{.Structname}}cVSW struct {
+	Tables []{{.Structname}}table `json:"tables"`
+}
+
+type {{.Structname}}table struct {
+	URL string     `json:"url"`
+	Row []{{.Structname}}janusRow `json:"row"`
+}
+
+type {{.Structname}}janusRow struct {
+	URL       string           `json:"url"`
+	Rownum    int              `json:"rownum"`
+	Describes []{{.Structname}} `json:"describes"`
+}
+
+// make name generic  How to load the body of struct
+type {{.Structname}} struct {
+{{.Structdata}}
+}
+
+func {{.Structname}}Model() *{{.Structname}} {
+	return &{{.Structname}}{}
+}
+
+// func JSONData(qry string, uri string, filename string) []byte {
+func {{.Structname}}Func(qry string, uri string, filename string, database string, collection string, conn *sql.DB, session *mgo.Session) error {
+
+	rows, err := conn.Query(qry)
+	if err != nil {
+		log.Printf(`Error with "%s": %s`, qry, err)
+	}
+
+	allResults := []{{.Structname}}janusRow{}
+	i := 1
+	for rows.Next() {
+		d := []{{.Structname}}{}
+		var t {{.Structname}}
+		err := sqlstruct.Scan(&t, rows)
+		if err != nil {
+			log.Print(err)
+		}
+		d = append(d, t)
+		rowURL := fmt.Sprintf("%s/%s#row=%v", uri, filename, i)
+		aRow := {{.Structname}}janusRow{rowURL, i, d}
+		allResults = append(allResults, aRow)
+		i = i + 1
+	}
+
+	theTable := {{.Structname}}table{fmt.Sprintf("%s/%s", uri, filename), allResults}
+	tableSet := []{{.Structname}}table{}
+	tableSet = append(tableSet, theTable)
+	final := {{.Structname}}cVSW{tableSet}
+
+	// Optional. Switch the session to a Strong behavior.
+	session.SetMode(mgo.Strong, true)
+	c := session.DB(database).C(collection)
+
+	err = c.Insert(&final)
+	if err != nil {
+		log.Printf("Janus func Error %v with %s\n", err, filename)
+	}
+
+	log.Printf("File: %s  written", filename)
+
+	jm, _ := json.MarshalIndent(final, "", " ")
+	_ = utils.WriteFile(filename, jm)
+
+	// session.Close()
+	return nil
+}

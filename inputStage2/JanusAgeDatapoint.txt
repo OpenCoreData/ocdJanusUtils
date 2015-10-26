@@ -1,0 +1,7 @@
+    Leg                            int64                `json:"Leg"`
+    Site                           int64                `json:"Site"`
+    Hole                           string               `json:"Hole"`
+    Age_model_type                 string               `json:"Age_model_type"`
+    Depth_mbsf                     float64              `json:"Depth_mbsf"`
+    Age_ma                         sql.NullFloat64      `json:"Age_ma"`
+    Control_point_comment          sql.NullString       `json:"Control_point_comment"`
