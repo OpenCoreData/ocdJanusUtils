@@ -1,27 +1,27 @@
-    Leg                            int64                `json:"Leg"`
-    Site                           int64                `json:"Site"`
-    Hole                           string               `json:"Hole"`
-    Core                           int64                `json:"Core"`
-    Core_type                      string               `json:"Core_type"`
-    Section_number                 int64                `json:"Section_number"`
-    Section_type                   string               `json:"Section_type"`
-    Top_cm                         float64              `json:"Top_cm"`
-    Depth_mbsf                     float64              `json:"Depth_mbsf"`
-    Section_id                     int64                `json:"Section_id"`
-    Run_number                     int64                `json:"Run_number"`
-    Run_timestamp                  string               `json:"Run_timestamp"`
-    Number_measured                int64                `json:"Number_measured"`
-    Calibration_timestamp          string               `json:"Calibration_timestamp"`
-    L_star                         float64              `json:"L_star"`
-    A_star                         float64              `json:"A_star"`
-    B_star                         float64              `json:"B_star"`
-    Height                         float64              `json:"Height"`
-    Height_assumed                 int64                `json:"Height_assumed"`
-    Munsell_hvc                    string               `json:"Munsell_hvc"`
-    Tristimulus_x                  float64              `json:"Tristimulus_x"`
-    Tristimulus_y                  float64              `json:"Tristimulus_y"`
-    Tristimulus_z                  float64              `json:"Tristimulus_z"`
-    First_channel                  int64                `json:"First_channel"`
-    Last_channel                   int64                `json:"Last_channel"`
-    Channel_increment              int64                `json:"Channel_increment"`
-    Spectral_values                string               `json:"Spectral_values"`
+    Leg                           int64               `json:"Leg" dc_description:"Number identifying the cruise."`
+    Site                          int64               `json:"Site" dc_description:"Number identifying the site from which the core was retrieved. A site is the position of a beacon around which holes are drilled."`
+    Hole                          string              `json:"Hole" dc_description:"Letter identifying the hole at a site from which a core was retrieved or data was collected."`
+    Core                          int64               `json:"Core" dc_description:"Sequential numbers identifying the cores retrieved from a particular hole."`
+    Core_type                     string              `json:"Core_type" dc_description:"Letter code identifying the drill bit/coring method used to retrieve the core."`
+    Section_number                int64               `json:"Section_number" dc_description:"Sequential number of a section of a core."`
+    Section_type                  sql.NullString      `json:"Section_type" dc_description:"Type of a section (C=Core Catcher, S=Core)."`
+    Top_cm                        float64             `json:"Top_cm" dc_unit:"cm" dc_unit_descript:"centimeters (cm)" dc_description:"Top value of an interval of a section in cm."`
+    Depth_mbsf                    float64             `json:"Depth_mbsf" dc_unit:"mbsf" dc_unit_descript:"meters below sea floor (mbsf)" dc_description:"Depth in meters below sea floor (mbsf)."`
+    Section_id                    int64               `json:"Section_id" dc_description:"Identifier (ID) of a section of a core."`
+    Run_number                    int64               `json:"Run_number" dc_description:"Number for a run for an analysis."`
+    Run_timestamp                 sql.NullString      `json:"Run_timestamp" dc_description:"Date/time of an analysis run."`
+    Number_measured               int64               `json:"Number_measured" dc_description:"Number of measurements for each data point."`
+    Calibration_timestamp         sql.NullString      `json:"Calibration_timestamp" dc_description:"Date and time of calibration."`
+    L_star                        float64             `json:"L_star" dc_description:"Measurement value of the L* lightness measurement of L*a*b* CIELAB system for color reflectance."`
+    A_star                        float64             `json:"A_star" dc_description:"Measurement value of the a* chromaticity green-red measurement of L*a*b* CIELAB system for color reflectance."`
+    B_star                        float64             `json:"B_star" dc_description:"Measurement value of the b* chromaticity blue-yellow measurement of L*a*b* CIELAB system for color reflectance."`
+    Height                        float64             `json:"Height" dc_unit:"mm" dc_unit_descript:"millimeters (mm)" dc_description:"Distance between aperture and core surface in mm."`
+    Height_assumed                int64               `json:"Height_assumed" dc_description:"Flag to indicate whether height measurement value was actually measured (1) or not (0)."`
+    Munsell_hvc                   string              `json:"Munsell_hvc" dc_description:"Measurement value of the Munsell HVC color notation."`
+    Tristimulus_x                 float64             `json:"Tristimulus_x" dc_description:"Measurement value in the x direction of the color sphere coordinates."`
+    Tristimulus_y                 float64             `json:"Tristimulus_y" dc_description:"Measurement value in the y direction of the color sphere coordinates."`
+    Tristimulus_z                 float64             `json:"Tristimulus_z" dc_description:"Measurement value in the z direction of the color sphere coordinates."`
+    First_channel                 int64               `json:"First_channel" dc_unit:"nm" dc_unit_descript:"nannometers (nm)" dc_description:"Wavelength of the first channel of color reflectance spectral values in nm."`
+    Last_channel                  int64               `json:"Last_channel" dc_unit:"nm" dc_unit_descript:"nannometers (nm)" dc_description:"Wavelength of the last channel of color reflectance spectral values in nm."`
+    Channel_increment             int64               `json:"Channel_increment" dc_description:"Wavelength increment between channels."`
+    Spectral_values               string              `json:"Spectral_values" dc_unit:"%" dc_unit_descript:"percent intensity (%)" dc_description:"String of 31 spectral reflectance values (% intensity)."`

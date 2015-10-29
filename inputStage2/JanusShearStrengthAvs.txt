@@ -1,27 +1,27 @@
-    Leg                            int64                `json:"Leg"`
-    Site                           int64                `json:"Site"`
-    Hole                           string               `json:"Hole"`
-    Core                           int64                `json:"Core"`
-    Core_type                      string               `json:"Core_type"`
-    Section_number                 int64                `json:"Section_number"`
-    Section_type                   string               `json:"Section_type"`
-    Top_cm                         float64              `json:"Top_cm"`
-    Bot_cm                         float64              `json:"Bot_cm"`
-    Depth_mbsf                     float64              `json:"Depth_mbsf"`
-    Section_id                     int64                `json:"Section_id"`
-    Shear_strength                 sql.NullFloat64      `json:"Shear_strength"`
-    Max_torque_angle               sql.NullFloat64      `json:"Max_torque_angle"`
-    Residual_strength              sql.NullFloat64      `json:"Residual_strength"`
-    Residual_torque_angle          sql.NullFloat64      `json:"Residual_torque_angle"`
-    Run_number                     int64                `json:"Run_number"`
-    Run_timestamp                  sql.NullString       `json:"Run_timestamp"`
-    Direction                      sql.NullString       `json:"Direction"`
-    Rotation_rate                  sql.NullFloat64      `json:"Rotation_rate"`
-    Vane_id                        sql.NullString       `json:"Vane_id"`
-    Spring_id                      sql.NullString       `json:"Spring_id"`
-    Raw_data_collected             sql.NullString       `json:"Raw_data_collected"`
-    Raw_torque_angle               sql.NullFloat64      `json:"Raw_torque_angle"`
-    Raw_strain_angle               sql.NullFloat64      `json:"Raw_strain_angle"`
-    Section_comment                sql.NullString       `json:"Section_comment"`
-    Spring_comment                 sql.NullString       `json:"Spring_comment"`
-    Vane_comment                   sql.NullString       `json:"Vane_comment"`
+    Leg                           int64               `json:"Leg" dc_description:"Number identifying the cruise."`
+    Site                          int64               `json:"Site" dc_description:"Number identifying the site from which the core was retrieved. A site is the position of a beacon around which holes are drilled."`
+    Hole                          string              `json:"Hole" dc_description:"Letter identifying the hole at a site from which a core was retrieved or data was collected."`
+    Core                          int64               `json:"Core" dc_description:"Sequential numbers identifying the cores retrieved from a particular hole."`
+    Core_type                     string              `json:"Core_type" dc_description:"Letter code identifying the drill bit/coring method used to retrieve the core."`
+    Section_number                int64               `json:"Section_number" dc_description:"Sequential number of a section of a core."`
+    Section_type                  sql.NullString      `json:"Section_type" dc_description:"Type of a section (C=Core Catcher, S=Core)."`
+    Top_cm                        float64             `json:"Top_cm" dc_unit:"cm" dc_unit_descript:"centimeters (cm)" dc_description:"Top value of an interval of a section in cm."`
+    Bot_cm                        float64             `json:"Bot_cm" dc_unit:"cm" dc_unit_descript:"centimeters (cm)" dc_description:"Bottom value of an interval of a section in cm."`
+    Depth_mbsf                    float64             `json:"Depth_mbsf" dc_unit:"mbsf" dc_unit_descript:"meters below sea floor (mbsf)" dc_description:"Depth in meters below sea floor (mbsf)."`
+    Section_id                    int64               `json:"Section_id" dc_description:"Identifier (ID) of a section of a core."`
+    Shear_strength                sql.NullFloat64     `json:"Shear_strength" dc_unit:"kPa" dc_unit_descript:"kilopascal (kPa)" dc_description:"Measurement value of shear strength in kPa units."`
+    Max_torque_angle              sql.NullFloat64     `json:"Max_torque_angle" dc_unit:"??" dc_unit_descript:"degrees (??)" dc_description:"Measurement value of the torque angle at sediment failure in degrees."`
+    Residual_strength             sql.NullFloat64     `json:"Residual_strength" dc_unit:"kPa" dc_unit_descript:"kilopascal (kPa)" dc_description:"Measurement value of the residual strength of the sediment after shearing in kPa units."`
+    Residual_torque_angle         sql.NullFloat64     `json:"Residual_torque_angle" dc_unit:"??" dc_unit_descript:"degrees" dc_description:"Measurement value of the residual torque angle of the sediment after shearing in degrees."`
+    Run_number                    int64               `json:"Run_number" dc_description:"Number for a run for an analysis."`
+    Run_timestamp                 sql.NullString      `json:"Run_timestamp" dc_description:"Date/time of an analysis run."`
+    Direction                     sql.NullString      `json:"Direction" dc_description:"Direction of measurement relative to a section of a core - X, Y, or Z.  X is into the working half."`
+    Rotation_rate                 sql.NullFloat64     `json:"Rotation_rate" dc_unit:"??/min" dc_unit_descript:"degrees per minute (??/min)" dc_description:"The rate of rotation of a vane in degrees per minute."`
+    Vane_id                       sql.NullString      `json:"Vane_id" dc_description:"Identifier (ID) of a vane."`
+    Spring_id                     sql.NullString      `json:"Spring_id" dc_description:"Identifier (ID) of a spring."`
+    Raw_data_collected            sql.NullString      `json:"Raw_data_collected" dc_description:"Flag to indicate if raw data was collected in association with measurement results for an instrument."`
+    Raw_torque_angle              sql.NullFloat64     `json:"Raw_torque_angle" dc_unit:"??" dc_unit_descript:"degrees" dc_description:"Measurement value of raw torque angle collected with automated vane system."`
+    Raw_strain_angle              sql.NullFloat64     `json:"Raw_strain_angle" dc_unit:"??" dc_unit_descript:"degrees" dc_description:"Measurement value of raw strain angle collected with automated vane system."`
+    Section_comment               sql.NullString      `json:"Section_comment" dc_description:"Remark on a section of a core."`
+    Spring_comment                sql.NullString      `json:"Spring_comment" dc_description:"Remark on a spring."`
+    Vane_comment                  sql.NullString      `json:"Vane_comment" dc_description:"Remark on a vane."`

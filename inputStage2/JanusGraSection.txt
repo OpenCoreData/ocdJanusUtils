@@ -1,24 +1,24 @@
-    Leg                            int64                `json:"Leg"`
-    Site                           int64                `json:"Site"`
-    Hole                           string               `json:"Hole"`
-    Core                           int64                `json:"Core"`
-    Core_type                      string               `json:"Core_type"`
-    Section_number                 int64                `json:"Section_number"`
-    Section_type                   string               `json:"Section_type"`
-    Top_cm                         float64              `json:"Top_cm"`
-    Depth_mbsf                     float64              `json:"Depth_mbsf"`
-    Section_id                     int64                `json:"Section_id"`
-    Density                        sql.NullFloat64      `json:"Density"`
-    Run_number                     string               `json:"Run_number"`
-    Run_timestamp                  string               `json:"Run_timestamp"`
-    Core_status                    string               `json:"Core_status"`
-    Liner_status                   string               `json:"Liner_status"`
-    Requested_daq_interval         sql.NullFloat64      `json:"Requested_daq_interval"`
-    Requested_daq_period           sql.NullFloat64      `json:"Requested_daq_period"`
-    Actual_daq_period              float64              `json:"Actual_daq_period"`
-    Measured_counts                int64                `json:"Measured_counts"`
-    Core_diameter                  float64              `json:"Core_diameter"`
-    Calibration_timestamp          string               `json:"Calibration_timestamp"`
-    Calib_density_m0               float64              `json:"Calib_density_m0"`
-    Calib_density_m1               float64              `json:"Calib_density_m1"`
-    Calib_density_mse              sql.NullFloat64      `json:"Calib_density_mse"`
+    Leg                           int64               `json:"Leg" dc_description:"Number identifying the cruise."`
+    Site                          int64               `json:"Site" dc_description:"Number identifying the site from which the core was retrieved. A site is the position of a beacon around which holes are drilled."`
+    Hole                          string              `json:"Hole" dc_description:"Letter identifying the hole at a site from which a core was retrieved or data was collected."`
+    Core                          int64               `json:"Core" dc_description:"Sequential numbers identifying the cores retrieved from a particular hole."`
+    Core_type                     string              `json:"Core_type" dc_description:"Letter code identifying the drill bit/coring method used to retrieve the core."`
+    Section_number                int64               `json:"Section_number" dc_description:"Sequential number of a section of a core."`
+    Section_type                  sql.NullString      `json:"Section_type" dc_description:"Type of a section (C=Core Catcher, S=Core)."`
+    Top_cm                        float64             `json:"Top_cm" dc_unit:"cm" dc_unit_descript:"centimeters (cm)" dc_description:"Top value of an interval of a section in cm."`
+    Depth_mbsf                    float64             `json:"Depth_mbsf" dc_unit:"mbsf" dc_unit_descript:"meters below sea floor (mbsf)" dc_description:"Depth in meters below sea floor (mbsf)."`
+    Section_id                    int64               `json:"Section_id" dc_description:"Identifier (ID) of a section of a core."`
+    Bulk_density                  sql.NullFloat64     `json:"Bulk_density" dc_unit:"g/cc" dc_unit_descript:"grams per cc (g/cc)" dc_description:"Measurement value of the bulk density in grams/cc."`
+    Run_number                    string              `json:"Run_number" dc_description:"Number for a run for an analysis."`
+    Run_timestamp                 sql.NullString      `json:"Run_timestamp" dc_description:"Date/time of an analysis run."`
+    Core_status                   sql.NullString      `json:"Core_status" dc_description:"Indicator for the status of a core, either FULL or HALF."`
+    Liner_status                  sql.NullString      `json:"Liner_status" dc_description:"Indicator for type of core liner; NONE, HALF, or FULL."`
+    Requested_daq_interval        sql.NullFloat64     `json:"Requested_daq_interval" dc_unit:"cm" dc_unit_descript:"centimeters (cm)" dc_description:"The requested data acquisition interval in cm."`
+    Requested_daq_period          sql.NullFloat64     `json:"Requested_daq_period" dc_unit:"s" dc_unit_descript:"seconds (s)" dc_description:"The requested data acquisition period in seconds."`
+    Actual_daq_period             sql.NullFloat64     `json:"Actual_daq_period" dc_unit:"s" dc_unit_descript:"seconds (s)" dc_description:"The actual data acquisition period used for measurements in seconds."`
+    Measured_counts               int64               `json:"Measured_counts" dc_unit:"ct" dc_unit_descript:"count (ct)" dc_description:"Raw measured counts collected by an MST instrument during a measurement."`
+    Core_diameter                 sql.NullFloat64     `json:"Core_diameter" dc_unit:"cm" dc_unit_descript:"centimeters (cm)" dc_description:"Diameter of a core in cm."`
+    Calibration_timestamp         sql.NullString      `json:"Calibration_timestamp" dc_description:"Date and time of calibration."`
+    Calib_density_m0              float64             `json:"Calib_density_m0" dc_description:"Calibration density intercept."`
+    Calib_density_m1              float64             `json:"Calib_density_m1" dc_description:"Calibration density slope."`
+    Calib_density_mse             sql.NullFloat64     `json:"Calib_density_mse" dc_description:"Calibration density mean squared error."`

@@ -1,21 +1,21 @@
-    Leg                            int64                `json:"Leg"`
-    Site                           int64                `json:"Site"`
-    Hole                           string               `json:"Hole"`
-    Core                           int64                `json:"Core"`
-    Core_type                      string               `json:"Core_type"`
-    Section_number                 int64                `json:"Section_number"`
-    Section_type                   string               `json:"Section_type"`
-    Top_cm                         float64              `json:"Top_cm"`
-    Bot_cm                         float64              `json:"Bot_cm"`
-    Depth_mbsf                     float64              `json:"Depth_mbsf"`
-    Request_number                 sql.NullString       `json:"Request_number"`
-    Sample_volume                  sql.NullFloat64      `json:"Sample_volume"`
-    Piece_sub_piece                sql.NullString       `json:"Piece_sub_piece"`
-    Sample_comment                 sql.NullString       `json:"Sample_comment"`
-    Sample_archive_working         sql.NullString       `json:"Sample_archive_working"`
-    Sample_lab_code                string               `json:"Sample_lab_code"`
-    Catwalk_sample                 sql.NullString       `json:"Catwalk_sample"`
-    Sample_id                      int64                `json:"Sample_id"`
-    Location                       string               `json:"Location"`
-    Sample_repository              sql.NullString       `json:"Sample_repository"`
-    Sample_timestamp               string               `json:"Sample_timestamp"`
+    Leg                           int64               `json:"Leg" dc_description:"Number identifying the cruise."`
+    Site                          int64               `json:"Site" dc_description:"Number identifying the site from which the core was retrieved. A site is the position of a beacon around which holes are drilled."`
+    Hole                          string              `json:"Hole" dc_description:"Letter identifying the hole at a site from which a core was retrieved or data was collected."`
+    Core                          int64               `json:"Core" dc_description:"Sequential numbers identifying the cores retrieved from a particular hole."`
+    Core_type                     string              `json:"Core_type" dc_description:"Letter code identifying the drill bit/coring method used to retrieve the core."`
+    Section_number                int64               `json:"Section_number" dc_description:"Sequential number of a section of a core."`
+    Section_type                  sql.NullString      `json:"Section_type" dc_description:"Type of a section (C=Core Catcher, S=Core)."`
+    Top_cm                        float64             `json:"Top_cm" dc_unit:"cm" dc_unit_descript:"centimeters (cm)" dc_description:"Top value of an interval of a section in cm."`
+    Bot_cm                        float64             `json:"Bot_cm" dc_unit:"cm" dc_unit_descript:"centimeters (cm)" dc_description:"Bottom value of an interval of a section in cm."`
+    Depth_mbsf                    float64             `json:"Depth_mbsf" dc_unit:"mbsf" dc_unit_descript:"meters below sea floor (mbsf)" dc_description:"Depth in meters below sea floor (mbsf)."`
+    Request_number                sql.NullString      `json:"Request_number" dc_description:"Unique number assigned to a sample request."`
+    Sample_volume                 sql.NullFloat64     `json:"Sample_volume" dc_unit:"cc" dc_unit_descript:"volume (cc = cm3)" dc_description:"Volume of sample in cc."`
+    Piece_sub_piece               sql.NullString      `json:"Piece_sub_piece" dc_description:"Concatenated designation of a piece (number) and sub-piece (letter) sub-piece of a rock (hard rock samples) within a section."`
+    Sample_comment                sql.NullString      `json:"Sample_comment" dc_description:"Remark on a sample."`
+    Sample_archive_working        sql.NullString      `json:"Sample_archive_working" dc_description:"Denotes whether sample was taken from an archive or working core section."`
+    Sample_lab_code               string              `json:"Sample_lab_code" dc_description:"Code identifier for a lab sample."`
+    Catwalk_sample                sql.NullString      `json:"Catwalk_sample" dc_description:"Flag to indicate if sample was taken on the core receiving platform before the core was split."`
+    Sample_id                     int64               `json:"Sample_id" dc_description:"Identifier (ID) of a sample."`
+    Location                      string              `json:"Location" dc_description:"Code that indicates the site where the Janus application is exercised.  Values are SHI(ship), GCR (Gulf Coast Repository), ECR (East Coast Repository) and BRE (Bremen repository)."`
+    Sample_repository             sql.NullString      `json:"Sample_repository" dc_description:"Repository where sample is stored."`
+    Sample_timestamp              string              `json:"Sample_timestamp" dc_description:"Timestamp for when sample was taken."`

@@ -1,28 +1,28 @@
-    Leg                            int64                `json:"Leg"`
-    Site                           int64                `json:"Site"`
-    Hole                           string               `json:"Hole"`
-    Core                           int64                `json:"Core"`
-    Core_type                      string               `json:"Core_type"`
-    Section_number                 int64                `json:"Section_number"`
-    Section_type                   string               `json:"Section_type"`
-    Top_cm                         float64              `json:"Top_cm"`
-    Bot_cm                         float64              `json:"Bot_cm"`
-    Depth_mbsf                     float64              `json:"Depth_mbsf"`
-    Section_id                     int64                `json:"Section_id"`
-    Piece                          sql.NullInt64        `json:"Piece"`
-    Sub_piece                      sql.NullString       `json:"Sub_piece"`
-    Sample_id                      int64                `json:"Sample_id"`
-    Location                       string               `json:"Location"`
-    Slide_number                   int64                `json:"Slide_number"`
-    Ts_comment                     sql.NullString       `json:"Ts_comment"`
-    Ts_sample_code_lab             sql.NullString       `json:"Ts_sample_code_lab"`
-    Url                            sql.NullString       `json:"Url"`
-    File_name                      sql.NullString       `json:"File_name"`
-    Image_date                     sql.NullString       `json:"Image_date"`
-    Light_abbr                     sql.NullString       `json:"Light_abbr"`
-    Magnification                  sql.NullString       `json:"Magnification"`
-    Feature                        sql.NullString       `json:"Feature"`
-    Scientist_initials             sql.NullString       `json:"Scientist_initials"`
-    Image_format                   sql.NullString       `json:"Image_format"`
-    Image_resolution               sql.NullInt64        `json:"Image_resolution"`
-    Micro_image_id                 sql.NullInt64        `json:"Micro_image_id"`
+    Leg                           int64               `json:"Leg" dc_description:"Number identifying the cruise."`
+    Site                          int64               `json:"Site" dc_description:"Number identifying the site from which the core was retrieved. A site is the position of a beacon around which holes are drilled."`
+    Hole                          string              `json:"Hole" dc_description:"Letter identifying the hole at a site from which a core was retrieved or data was collected."`
+    Core                          int64               `json:"Core" dc_description:"Sequential numbers identifying the cores retrieved from a particular hole."`
+    Core_type                     string              `json:"Core_type" dc_description:"Letter code identifying the drill bit/coring method used to retrieve the core."`
+    Section_number                int64               `json:"Section_number" dc_description:"Sequential number of a section of a core."`
+    Section_type                  sql.NullString      `json:"Section_type" dc_description:"Type of a section (C=Core Catcher, S=Core)."`
+    Top_cm                        float64             `json:"Top_cm" dc_unit:"cm" dc_unit_descript:"centimeters (cm)" dc_description:"Top value of an interval of a section in cm."`
+    Bot_cm                        float64             `json:"Bot_cm" dc_unit:"cm" dc_unit_descript:"centimeters (cm)" dc_description:"Bottom value of an interval of a section in cm."`
+    Depth_mbsf                    float64             `json:"Depth_mbsf" dc_unit:"mbsf" dc_unit_descript:"meters below sea floor (mbsf)" dc_description:"Depth in meters below sea floor (mbsf)."`
+    Section_id                    int64               `json:"Section_id" dc_description:"Identifier (ID) of a section of a core."`
+    Piece                         sql.NullInt64       `json:"Piece" dc_description:"Sequential number for a piece of rock (hard rock samples) within a section."`
+    Sub_piece                     sql.NullString      `json:"Sub_piece" dc_description:"Letter designation of a sub-piece of a hard rock piece in a section."`
+    Sample_id                     int64               `json:"Sample_id" dc_description:"Identifier (ID) of a sample."`
+    Location                      string              `json:"Location" dc_description:"Code that indicates the site where the Janus application is exercised.  Values are SHI(ship), GCR (Gulf Coast Repository), ECR (East Coast Repository) and BRE (Bremen repository)."`
+    Slide_number                  int64               `json:"Slide_number" dc_description:"Number assigned to a thin section slide."`
+    Ts_comment                    sql.NullString      `json:"Ts_comment" dc_description:"Remark on a thin section."`
+    Ts_sample_code_lab            sql.NullString      `json:"Ts_sample_code_lab" dc_description:"Code to indicate the shipboard lab that performed the analysis."`
+    Url                           sql.NullString      `json:"Url" dc_description:"Uniform Resource Locator (URL) for the image available on the internet."`
+    File_name                     sql.NullString      `json:"File_name" dc_description:"Name of a thin section image file."`
+    Image_date                    sql.NullString      `json:"Image_date" dc_description:"Date image was acquired."`
+    Light_abbr                    sql.NullString      `json:"Light_abbr" dc_description:"Abbreviation for microscope light type."`
+    Magnification                 sql.NullString      `json:"Magnification" dc_description:"Magnification used for the microphotograph."`
+    Feature                       sql.NullString      `json:"Feature" dc_description:"Description of a feature in a thin section image."`
+    Scientist_initials            sql.NullString      `json:"Scientist_initials" dc_description:"Initials of a scientist."`
+    Image_format                  sql.NullString      `json:"Image_format" dc_description:"File image format of an image (TIF,JPG,PDF)."`
+    Image_resolution              sql.NullInt64       `json:"Image_resolution" dc_unit:"dpi" dc_unit_descript:"dots per inch (dpi)" dc_description:"Resolution of the image in dpi."`
+    Micro_image_id                sql.NullInt64       `json:"Micro_image_id" dc_description:"Identifier (ID) of a thin section microphotograph."`

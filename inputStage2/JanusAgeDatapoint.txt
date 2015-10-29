@@ -1,7 +1,7 @@
-    Leg                            int64                `json:"Leg"`
-    Site                           int64                `json:"Site"`
-    Hole                           string               `json:"Hole"`
-    Age_model_type                 string               `json:"Age_model_type"`
-    Depth_mbsf                     float64              `json:"Depth_mbsf"`
-    Age_ma                         sql.NullFloat64      `json:"Age_ma"`
-    Control_point_comment          sql.NullString       `json:"Control_point_comment"`
+    Leg                           int64               `json:"Leg" dc_description:"Number identifying the cruise."`
+    Site                          int64               `json:"Site" dc_description:"Number identifying the site from which the core was retrieved. A site is the position of a beacon around which holes are drilled."`
+    Hole                          string              `json:"Hole" dc_description:"Letter identifying the hole at a site from which a core was retrieved or data was collected."`
+    Age_model_type                string              `json:"Age_model_type" dc_description:"The type of the age model - where or when it was constructed (shipboard, initial reports, post-moratorium)."`
+    Depth_mbsf                    float64             `json:"Depth_mbsf" dc_unit:"mbsf" dc_unit_descript:"meters below sea floor (mbsf)" dc_description:"Depth in meters below sea floor (mbsf)."`
+    Age_ma                        sql.NullFloat64     `json:"Age_ma" dc_unit:"ma" dc_unit_descript:"millions of years (ma)" dc_description:"Age in millions of years (ma)."`
+    Control_point_comment         sql.NullString      `json:"Control_point_comment" dc_description:"Remark on a control point for an age model."`

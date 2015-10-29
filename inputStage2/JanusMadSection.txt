@@ -1,29 +1,29 @@
-    Leg                            int64                `json:"Leg"`
-    Site                           int64                `json:"Site"`
-    Hole                           string               `json:"Hole"`
-    Core                           int64                `json:"Core"`
-    Core_type                      string               `json:"Core_type"`
-    Section_number                 int64                `json:"Section_number"`
-    Section_type                   string               `json:"Section_type"`
-    Top_cm                         float64              `json:"Top_cm"`
-    Bot_cm                         float64              `json:"Bot_cm"`
-    Depth_mbsf                     float64              `json:"Depth_mbsf"`
-    Section_id                     int64                `json:"Section_id"`
-    Calc_water_content_wet         sql.NullFloat64      `json:"Calc_water_content_wet"`
-    Calc_water_content_dry         sql.NullFloat64      `json:"Calc_water_content_dry"`
-    Calc_bulk_density              sql.NullFloat64      `json:"Calc_bulk_density"`
-    Calc_dry_density               sql.NullFloat64      `json:"Calc_dry_density"`
-    Calc_grain_density             sql.NullFloat64      `json:"Calc_grain_density"`
-    Calc_porosity                  sql.NullFloat64      `json:"Calc_porosity"`
-    Calc_void_ratio                sql.NullFloat64      `json:"Calc_void_ratio"`
-    Calc_method                    string               `json:"Calc_method"`
-    Method                         string               `json:"Method"`
-    Mad_comment                    sql.NullString       `json:"Mad_comment"`
-    Beaker_date_time               sql.NullString       `json:"Beaker_date_time"`
-    Sample_water_content_bulk      sql.NullFloat64      `json:"Sample_water_content_bulk"`
-    Sample_water_content_solids    sql.NullFloat64      `json:"Sample_water_content_solids"`
-    Sample_bulk_density            sql.NullFloat64      `json:"Sample_bulk_density"`
-    Sample_dry_density             sql.NullFloat64      `json:"Sample_dry_density"`
-    Sample_grain_density           sql.NullFloat64      `json:"Sample_grain_density"`
-    Sample_porosity                sql.NullFloat64      `json:"Sample_porosity"`
-    Sample_void_ratio              sql.NullFloat64      `json:"Sample_void_ratio"`
+    Leg                           int64               `json:"Leg" dc_description:"Number identifying the cruise."`
+    Site                          int64               `json:"Site" dc_description:"Number identifying the site from which the core was retrieved. A site is the position of a beacon around which holes are drilled."`
+    Hole                          string              `json:"Hole" dc_description:"Letter identifying the hole at a site from which a core was retrieved or data was collected."`
+    Core                          int64               `json:"Core" dc_description:"Sequential numbers identifying the cores retrieved from a particular hole."`
+    Core_type                     string              `json:"Core_type" dc_description:"Letter code identifying the drill bit/coring method used to retrieve the core."`
+    Section_number                sql.NullInt64       `json:"Section_number" dc_description:"Sequential number of a section of a core."`
+    Section_type                  sql.NullString      `json:"Section_type" dc_description:"Type of a section (C=Core Catcher, S=Core)."`
+    Top_cm                        float64             `json:"Top_cm" dc_unit:"cm" dc_unit_descript:"centimeters (cm)" dc_description:"Top value of an interval of a section in cm."`
+    Bot_cm                        float64             `json:"Bot_cm" dc_unit:"cm" dc_unit_descript:"centimeters (cm)" dc_description:"Bottom value of an interval of a section in cm."`
+    Depth_mbsf                    float64             `json:"Depth_mbsf" dc_unit:"mbsf" dc_unit_descript:"meters below sea floor (mbsf)" dc_description:"Depth in meters below sea floor (mbsf)."`
+    Section_id                    int64               `json:"Section_id" dc_description:"Identifier (ID) of a section of a core."`
+    Calc_water_content_wet        sql.NullFloat64     `json:"Calc_water_content_wet" dc_unit:"%" dc_unit_descript:"percent (%)" dc_description:"Measurement value of calculated water content (wet) in percent."`
+    Calc_water_content_dry        sql.NullFloat64     `json:"Calc_water_content_dry" dc_unit:"%" dc_unit_descript:"percent (%)" dc_description:"Measurement value of calculated water content (dry) in percent."`
+    Calc_bulk_density             sql.NullFloat64     `json:"Calc_bulk_density" dc_unit:"g/cc" dc_unit_descript:"grams per cc (g/cc)" dc_description:"Measurement value of calculated bulk density in g/cc."`
+    Calc_dry_density              sql.NullFloat64     `json:"Calc_dry_density" dc_unit:"g/cc" dc_unit_descript:"grams per cc (g/cc)" dc_description:"Measurement value of calculated dry_density in g/cc."`
+    Calc_grain_density            sql.NullFloat64     `json:"Calc_grain_density" dc_description:"Measurement value of calculated grain density in g/cc."`
+    Calc_porosity                 sql.NullFloat64     `json:"Calc_porosity" dc_unit:"%" dc_unit_descript:"percent (%)" dc_description:"Measurement value of calculated porosity in percent."`
+    Calc_void_ratio               sql.NullFloat64     `json:"Calc_void_ratio" dc_description:"Measurement value of calculated void ratio."`
+    Calc_method                   string              `json:"Calc_method" dc_description:"Letter designation of the actual method of calculation for moisture and density measurements."`
+    Method                        string              `json:"Method" dc_description:"Letter designation of the method of calculation for moisture and density measurements."`
+    Mad_comment                   sql.NullString      `json:"Mad_comment" dc_description:"Remark on a moisture and density sample."`
+    Beaker_date_time              sql.NullString      `json:"Beaker_date_time" dc_description:"The date and time calibration data for a MAD (Moisture and Density) beaker from the physical properties laboratory."`
+    Sample_water_content_bulk     sql.NullFloat64     `json:"Sample_water_content_bulk" dc_description:"Measurement value of bulk sample water content."`
+    Sample_water_content_solids   sql.NullFloat64     `json:"Sample_water_content_solids" dc_description:"Measurement value of solids sample water content."`
+    Sample_bulk_density           sql.NullFloat64     `json:"Sample_bulk_density" dc_description:"Measurement value of sample bulk density by Method A or B."`
+    Sample_dry_density            sql.NullFloat64     `json:"Sample_dry_density" dc_description:"Measurement value of sampled dry density."`
+    Sample_grain_density          sql.NullFloat64     `json:"Sample_grain_density" dc_description:"Measurement value of sample grain density."`
+    Sample_porosity               sql.NullFloat64     `json:"Sample_porosity" dc_description:"Measurement value of porosity."`
+    Sample_void_ratio             sql.NullFloat64     `json:"Sample_void_ratio" dc_description:"Measurement value of sample void ratio."`

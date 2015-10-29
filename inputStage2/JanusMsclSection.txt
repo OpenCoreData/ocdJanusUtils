@@ -1,19 +1,19 @@
-    Leg                            int64                `json:"Leg"`
-    Site                           int64                `json:"Site"`
-    Hole                           string               `json:"Hole"`
-    Core                           int64                `json:"Core"`
-    Core_type                      string               `json:"Core_type"`
-    Section_number                 int64                `json:"Section_number"`
-    Section_type                   string               `json:"Section_type"`
-    Top_cm                         float64              `json:"Top_cm"`
-    Depth_mbsf                     float64              `json:"Depth_mbsf"`
-    Section_id                     int64                `json:"Section_id"`
-    Normalized_susceptibility      float64              `json:"Normalized_susceptibility"`
-    Magnetic_susceptibility        float64              `json:"Magnetic_susceptibility"`
-    Run_number                     string               `json:"Run_number"`
-    Run_timestamp                  string               `json:"Run_timestamp"`
-    Integration_time               float64              `json:"Integration_time"`
-    Number_cycles                  int64                `json:"Number_cycles"`
-    System_id                      int64                `json:"System_id"`
-    Lims_component_id              int64                `json:"Lims_component_id"`
-    Freq_normalization_factor      float64              `json:"Freq_normalization_factor"`
+    Leg                           int64               `json:"Leg" dc_description:"Number identifying the cruise."`
+    Site                          int64               `json:"Site" dc_description:"Number identifying the site from which the core was retrieved. A site is the position of a beacon around which holes are drilled."`
+    Hole                          string              `json:"Hole" dc_description:"Letter identifying the hole at a site from which a core was retrieved or data was collected."`
+    Core                          int64               `json:"Core" dc_description:"Sequential numbers identifying the cores retrieved from a particular hole."`
+    Core_type                     string              `json:"Core_type" dc_description:"Letter code identifying the drill bit/coring method used to retrieve the core."`
+    Section_number                int64               `json:"Section_number" dc_description:"Sequential number of a section of a core."`
+    Section_type                  sql.NullString      `json:"Section_type" dc_description:"Type of a section (C=Core Catcher, S=Core)."`
+    Top_cm                        float64             `json:"Top_cm" dc_unit:"cm" dc_unit_descript:"centimeters (cm)" dc_description:"Top value of an interval of a section in cm."`
+    Depth_mbsf                    float64             `json:"Depth_mbsf" dc_unit:"mbsf" dc_unit_descript:"meters below sea floor (mbsf)" dc_description:"Depth in meters below sea floor (mbsf)."`
+    Section_id                    int64               `json:"Section_id" dc_description:"Identifier (ID) of a section of a core."`
+    Normalized_susceptibility     float64             `json:"Normalized_susceptibility" dc_unit:"SI" dc_unit_descript:"SI" dc_description:"Measurement value of normalized magnetic susceptibility."`
+    Magnetic_susceptibility       float64             `json:"Magnetic_susceptibility" dc_unit:"SI" dc_unit_descript:"SI" dc_description:"Measurement value of magnetic susceptibility in SI units."`
+    Run_number                    string              `json:"Run_number" dc_description:"Number for a run for an analysis."`
+    Run_timestamp                 sql.NullString      `json:"Run_timestamp" dc_description:"Date/time of an analysis run."`
+    Integration_time              float64             `json:"Integration_time" dc_unit:"s" dc_unit_descript:"seconds (s)" dc_description:"Integration_time in seconds (s)."`
+    Number_cycles                 int64               `json:"Number_cycles" dc_description:"Number of measurements taken at the specified integration time to obtain an averaged result."`
+    System_id                     int64               `json:"System_id" dc_description:"Identifier (ID) for the system used in analysis."`
+    Lims_component_id             int64               `json:"Lims_component_id" dc_description:"Identifier (ID) of the LIMS component for the loop."`
+    Freq_normalization_factor     float64             `json:"Freq_normalization_factor" dc_description:"Factor used for normalizing magnetic susceptibility measurement."`

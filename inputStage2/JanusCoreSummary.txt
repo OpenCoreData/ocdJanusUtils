@@ -1,12 +1,12 @@
-    Leg                            int64                `json:"Leg"`
-    Site                           int64                `json:"Site"`
-    Hole                           string               `json:"Hole"`
-    Core                           int64                `json:"Core"`
-    Core_type                      string               `json:"Core_type"`
-    Top_depth_mbsf                 sql.NullFloat64      `json:"Top_depth_mbsf"`
-    Length_cored                   sql.NullFloat64      `json:"Length_cored"`
-    Length_recovered               sql.NullFloat64      `json:"Length_recovered"`
-    Percent_recovered              sql.NullFloat64      `json:"Percent_recovered"`
-    Curated_length                 sql.NullFloat64      `json:"Curated_length"`
-    Ship_date_time                 sql.NullString       `json:"Ship_date_time"`
-    Core_comment                   sql.NullString       `json:"Core_comment"`
+    Leg                           int64               `json:"Leg" dc_description:"Number identifying the cruise."`
+    Site                          int64               `json:"Site" dc_description:"Number identifying the site from which the core was retrieved. A site is the position of a beacon around which holes are drilled."`
+    Hole                          string              `json:"Hole" dc_description:"Letter identifying the hole at a site from which a core was retrieved or data was collected."`
+    Core                          int64               `json:"Core" dc_description:"Sequential numbers identifying the cores retrieved from a particular hole."`
+    Core_type                     string              `json:"Core_type" dc_description:"Letter code identifying the drill bit/coring method used to retrieve the core."`
+    Top_depth_mbsf                sql.NullFloat64     `json:"Top_depth_mbsf" dc_unit:"mbsf" dc_unit_descript:"meters below sea floor (mbsf)" dc_description:"Depth value of top of an interval in meters below sea floor (mbsf)."`
+    Length_cored                  sql.NullFloat64     `json:"Length_cored" dc_unit:"m" dc_unit_descript:"meters (m)" dc_description:"Length cored of the core in meters."`
+    Length_recovered              sql.NullFloat64     `json:"Length_recovered" dc_unit:"m" dc_unit_descript:"meters (m)" dc_description:"Length of material recovered in the core in meters."`
+    Percent_recovered             sql.NullFloat64     `json:"Percent_recovered" dc_unit:"%" dc_unit_descript:"percent (%)" dc_description:"Measurement value of core recovered in percent."`
+    Curated_length                sql.NullFloat64     `json:"Curated_length" dc_unit:"m" dc_unit_descript:"meters (m)" dc_description:"Measurement value of the length of a curated core in meters."`
+    Ship_date_time                sql.NullString      `json:"Ship_date_time" dc_description:"Date and time on ship."`
+    Core_comment                  sql.NullString      `json:"Core_comment" dc_description:"Remark on a core."`

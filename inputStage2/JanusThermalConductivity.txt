@@ -1,15 +1,15 @@
-    Leg                            int64                `json:"Leg"`
-    Site                           int64                `json:"Site"`
-    Hole                           string               `json:"Hole"`
-    Core                           int64                `json:"Core"`
-    Core_type                      string               `json:"Core_type"`
-    Section_number                 int64                `json:"Section_number"`
-    Section_type                   string               `json:"Section_type"`
-    Top_cm                         float64              `json:"Top_cm"`
-    Bot_cm                         float64              `json:"Bot_cm"`
-    Depth_mbsf                     float64              `json:"Depth_mbsf"`
-    Probe_type                     string               `json:"Probe_type"`
-    Thermcon_value                 float64              `json:"Thermcon_value"`
-    System_id                      sql.NullInt64        `json:"System_id"`
-    Probe_number                   int64                `json:"Probe_number"`
-    Thermcon_comment               sql.NullString       `json:"Thermcon_comment"`
+    Leg                           int64               `json:"Leg" dc_description:"Number identifying the cruise."`
+    Site                          int64               `json:"Site" dc_description:"Number identifying the site from which the core was retrieved. A site is the position of a beacon around which holes are drilled."`
+    Hole                          string              `json:"Hole" dc_description:"Letter identifying the hole at a site from which a core was retrieved or data was collected."`
+    Core                          int64               `json:"Core" dc_description:"Sequential numbers identifying the cores retrieved from a particular hole."`
+    Core_type                     string              `json:"Core_type" dc_description:"Letter code identifying the drill bit/coring method used to retrieve the core."`
+    Section_number                int64               `json:"Section_number" dc_description:"Sequential number of a section of a core."`
+    Section_type                  sql.NullString      `json:"Section_type" dc_description:"Type of a section (C=Core Catcher, S=Core)."`
+    Top_cm                        float64             `json:"Top_cm" dc_unit:"cm" dc_unit_descript:"centimeters (cm)" dc_description:"Top value of an interval of a section in cm."`
+    Bot_cm                        float64             `json:"Bot_cm" dc_unit:"cm" dc_unit_descript:"centimeters (cm)" dc_description:"Bottom value of an interval of a section in cm."`
+    Depth_mbsf                    float64             `json:"Depth_mbsf" dc_unit:"mbsf" dc_unit_descript:"meters below sea floor (mbsf)" dc_description:"Depth in meters below sea floor (mbsf)."`
+    Probe_type                    string              `json:"Probe_type" dc_description:"Type of needle probe: full-space (FULL; insertion into soft material) or half-space (HALF; contact with flat surface)."`
+    Thermcon_value                float64             `json:"Thermcon_value" dc_description:"Measurement value of thermal conductivity."`
+    System_id                     sql.NullInt64       `json:"System_id" dc_description:"Identifier (ID) for the system used in analysis."`
+    Probe_number                  int64               `json:"Probe_number" dc_description:"Number that uniquely identifies a probe of a manufacturers instrument for associating measurements."`
+    Thermcon_comment              sql.NullString      `json:"Thermcon_comment" dc_description:"Remark on a thermal conductivity measurement."`

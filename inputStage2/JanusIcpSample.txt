@@ -1,56 +1,56 @@
-    Leg                            int64                `json:"Leg"`
-    Site                           int64                `json:"Site"`
-    Hole                           string               `json:"Hole"`
-    Core                           int64                `json:"Core"`
-    Core_type                      string               `json:"Core_type"`
-    Section_number                 int64                `json:"Section_number"`
-    Section_type                   string               `json:"Section_type"`
-    Top_cm                         float64              `json:"Top_cm"`
-    Bot_cm                         float64              `json:"Bot_cm"`
-    Depth_mbsf                     float64              `json:"Depth_mbsf"`
-    Sample_id                      int64                `json:"Sample_id"`
-    Xrf_run_identifier             string               `json:"Xrf_run_identifier"`
-    Xrf_replicate                  string               `json:"Xrf_replicate"`
-    Xrf_analysis_type              string               `json:"Xrf_analysis_type"`
-    Bead_loi                       sql.NullFloat64      `json:"Bead_loi"`
-    Sample_type                    string               `json:"Sample_type"`
-    Xrf_comment                    sql.NullString       `json:"Xrf_comment"`
-    Sio2_wt_pct                    sql.NullFloat64      `json:"SiO2_wt_pct"`
-    Tio2_wt_pct                    sql.NullFloat64      `json:"TiO2_wt_pct"`
-    Al2o3_wt_pct                   sql.NullFloat64      `json:"Al2O3_wt_pct"`
-    Fe2o3_wt_pct                   sql.NullFloat64      `json:"Fe2O3*_wt_pct"`
-    Mno_wt_pct                     sql.NullFloat64      `json:"MnO_wt_pct"`
-    Mgo_wt_pct                     sql.NullFloat64      `json:"MgO_wt_pct"`
-    Cao_wt_pct                     sql.NullFloat64      `json:"CaO_wt_pct"`
-    Na2o_wt_pct                    sql.NullFloat64      `json:"Na2O_wt_pct"`
-    K2o_wt_pct                     sql.NullFloat64      `json:"K2O_wt_pct"`
-    P2o5_wt_pct                    sql.NullFloat64      `json:"P2O5_wt_pct"`
-    Nb_ppm                         sql.NullFloat64      `json:"Nb_ppm"`
-    Zr_ppm                         sql.NullFloat64      `json:"Zr_ppm"`
-    Y_ppm                          sql.NullFloat64      `json:"Y_ppm"`
-    S_ppm                          sql.NullFloat64      `json:"S_ppm"`
-    Sr_ppm                         sql.NullFloat64      `json:"Sr_ppm"`
-    Rb_ppm                         sql.NullFloat64      `json:"Rb_ppm"`
-    Sc_ppm                         sql.NullFloat64      `json:"Sc_ppm"`
-    Mo_ppm                         sql.NullFloat64      `json:"Mo_ppm"`
-    Be_ppm                         sql.NullFloat64      `json:"Be_ppm"`
-    Th_ppm                         sql.NullFloat64      `json:"Th_ppm"`
-    Co_ppm                         sql.NullFloat64      `json:"Co_ppm"`
-    Gd_ppm                         sql.NullFloat64      `json:"Gd_ppm"`
-    Dy_ppm                         sql.NullFloat64      `json:"Dy_ppm"`
-    Er_ppm                         sql.NullFloat64      `json:"Er_ppm"`
-    Yb_ppm                         sql.NullFloat64      `json:"Yb_ppm"`
-    Hf_ppm                         sql.NullFloat64      `json:"Hf_ppm"`
-    Pb_ppm                         sql.NullFloat64      `json:"Pb_ppm"`
-    Ga_ppm                         sql.NullFloat64      `json:"Ga_ppm"`
-    Zn_ppm                         sql.NullFloat64      `json:"Zn_ppm"`
-    Cu_ppm                         sql.NullFloat64      `json:"Cu_ppm"`
-    Ni_ppm                         sql.NullFloat64      `json:"Ni_ppm"`
-    Cr_ppm                         sql.NullFloat64      `json:"Cr_ppm"`
-    V_ppm                          sql.NullFloat64      `json:"V_ppm"`
-    Ce_ppm                         sql.NullFloat64      `json:"Ce_ppm"`
-    Ba_ppm                         sql.NullFloat64      `json:"Ba_ppm"`
-    Cs_ppm                         sql.NullFloat64      `json:"Cs_ppm"`
-    La_ppm                         sql.NullFloat64      `json:"La_ppm"`
-    Nd_ppm                         sql.NullFloat64      `json:"Nd_ppm"`
-    Sm_ppm                         sql.NullFloat64      `json:"Sm_ppm"`
+    Leg                           int64               `json:"Leg" dc_description:"Number identifying the cruise."`
+    Site                          int64               `json:"Site" dc_description:"Number identifying the site from which the core was retrieved. A site is the position of a beacon around which holes are drilled."`
+    Hole                          string              `json:"Hole" dc_description:"Letter identifying the hole at a site from which a core was retrieved or data was collected."`
+    Core                          int64               `json:"Core" dc_description:"Sequential numbers identifying the cores retrieved from a particular hole."`
+    Core_type                     string              `json:"Core_type" dc_description:"Letter code identifying the drill bit/coring method used to retrieve the core."`
+    Section_number                int64               `json:"Section_number" dc_description:"Sequential number of a section of a core."`
+    Section_type                  sql.NullString      `json:"Section_type" dc_description:"Type of a section (C=Core Catcher, S=Core)."`
+    Top_cm                        float64             `json:"Top_cm" dc_unit:"cm" dc_unit_descript:"centimeters (cm)" dc_description:"Top value of an interval of a section in cm."`
+    Bot_cm                        float64             `json:"Bot_cm" dc_unit:"cm" dc_unit_descript:"centimeters (cm)" dc_description:"Bottom value of an interval of a section in cm."`
+    Depth_mbsf                    float64             `json:"Depth_mbsf" dc_unit:"mbsf" dc_unit_descript:"meters below sea floor (mbsf)" dc_description:"Depth in meters below sea floor (mbsf)."`
+    Sample_id                     int64               `json:"Sample_id" dc_description:"Identifier (ID) of a sample."`
+    Xrf_run_identifier            string              `json:"Xrf_run_identifier" dc_description:"Identifier for a run of an analysis on a sample."`
+    Xrf_replicate                 string              `json:"Xrf_replicate" dc_description:"Identifer used for analysis of replicates of a sample."`
+    Xrf_analysis_type             string              `json:"Xrf_analysis_type" dc_description:"The type of element analysis performed on xrf sample."`
+    Bead_loi                      sql.NullFloat64     `json:"Bead_loi" dc_unit:"%" dc_unit_descript:"percent (%)" dc_description:"Measurement (calculated) value of sample weight lost after ignition in percent."`
+    Sample_type                   string              `json:"Sample_type" dc_description:"Type of sample (sediment or mineral) analyzed."`
+    Xrf_comment                   sql.NullString      `json:"Xrf_comment" dc_description:"Remark on an xrf analysis."`
+    Sio2_wt_pct                   sql.NullFloat64     `json:"Sio2_wt_pct" dc_unit:"wt%" dc_unit_descript:"weight percent (wt%)" dc_description:"Measurement value of Silica/Silicon Oxide (SiO2) in weight percent (wt%)."`
+    Tio2_wt_pct                   sql.NullFloat64     `json:"Tio2_wt_pct" dc_unit:"wt%" dc_unit_descript:"weight percent (wt%)" dc_description:"Measurement value of Titanium Dioxide (TiO2) in weight percent (wt%)."`
+    Al2o3_wt_pct                  sql.NullFloat64     `json:"Al2o3_wt_pct" dc_unit:"wt%" dc_unit_descript:"weight percent (wt%)" dc_description:"Measurement value of Aluminum Oxide (Al2O3) in weight percent (wt%)."`
+    Fe2o3_wt_pct                  sql.NullFloat64     `json:"Fe2o3_wt_pct" dc_unit:"ppm" dc_unit_descript:"parts per million (ppm)" dc_description:"Measurement value of Iron Oxide (Fe2O3) in ppm."`
+    Mno_wt_pct                    sql.NullFloat64     `json:"Mno_wt_pct" dc_unit:"wt%" dc_unit_descript:"weight percent (wt%)" dc_description:"Measurement value of Manganese Oxide (MnO) in weight percent (wt%)."`
+    Mgo_wt_pct                    sql.NullFloat64     `json:"Mgo_wt_pct" dc_unit:"wt%" dc_unit_descript:"weight percent (wt%)" dc_description:"Measurement value of Magnesium Oxide (MgO) in weight percent (wt%)."`
+    Cao_wt_pct                    sql.NullFloat64     `json:"Cao_wt_pct" dc_unit:"wt%" dc_unit_descript:"weight percent (wt%)" dc_description:"Measurement value of Calcium Oxide (CaO) in weight percent (wt%)."`
+    Na2o_wt_pct                   sql.NullFloat64     `json:"Na2o_wt_pct" dc_unit:"wt%" dc_unit_descript:"weight percent (wt%)" dc_description:"Measurement value of Sodium Oxide (Na2O) in weight percent (wt%)."`
+    K2o_wt_pct                    sql.NullFloat64     `json:"K2o_wt_pct" dc_unit:"wt%" dc_unit_descript:"weight percent (wt%)" dc_description:"Measurement value of Potassium oxide (K2O) in weight percent (wt%)."`
+    P2o5_wt_pct                   sql.NullFloat64     `json:"P2o5_wt_pct" dc_unit:"wt%" dc_unit_descript:"weight percent (wt%)" dc_description:"Measurement value of Phosphorus pentoxide (P2O5) in weight percent (wt%)."`
+    Nb_ppm                        sql.NullFloat64     `json:"Nb_ppm" dc_unit:"ppm" dc_unit_descript:"parts per million (ppm)" dc_description:"Measurement value of Niobium (Nb) in ppm."`
+    Zr_ppm                        sql.NullFloat64     `json:"Zr_ppm" dc_unit:"ppm" dc_unit_descript:"parts per million (ppm)" dc_description:"Measurement value of Zirconium (Zr) in ppm."`
+    Y_ppm                         sql.NullFloat64     `json:"Y_ppm" dc_unit:"ppm" dc_unit_descript:"parts per million (ppm)" dc_description:"Measurement value of Yttrium (Y) in ppm."`
+    S_ppm                         sql.NullFloat64     `json:"S_ppm" dc_unit:"ppm" dc_unit_descript:"parts per million (ppm)" dc_description:"Measurement value of Sulfur (S) in ppm."`
+    Sr_ppm                        sql.NullFloat64     `json:"Sr_ppm" dc_unit:"ppm" dc_unit_descript:"parts per million (ppm)" dc_description:"Measurement value of Strontium (Sr) in ppm."`
+    Rb_ppm                        sql.NullFloat64     `json:"Rb_ppm" dc_unit:"ppm" dc_unit_descript:"parts per million (ppm)" dc_description:"Measurement value of Rubidium (Rb) in ppm."`
+    Sc_ppm                        sql.NullFloat64     `json:"Sc_ppm" dc_unit:"ppm" dc_unit_descript:"parts per million (ppm)" dc_description:"Measurement value of Scandium (Sc) in ppm."`
+    Mo_ppm                        sql.NullFloat64     `json:"Mo_ppm" dc_unit:"ppm" dc_unit_descript:"parts per million (ppm)" dc_description:"Measurement value of Molybdenum (Mo) in ppm."`
+    Be_ppm                        sql.NullFloat64     `json:"Be_ppm" dc_unit:"ppm" dc_unit_descript:"parts per million (ppm)" dc_description:"Measurement value of Beryllium (Be) in ppm."`
+    Th_ppm                        sql.NullFloat64     `json:"Th_ppm" dc_unit:"ppm" dc_unit_descript:"parts per million (ppm)" dc_description:"Measurement value of Thorium (Th) in ppm."`
+    Co_ppm                        sql.NullFloat64     `json:"Co_ppm" dc_unit:"ppm" dc_unit_descript:"parts per million (ppm)" dc_description:"Measurement value of Cobalt (Co) in ppm."`
+    Gd_ppm                        sql.NullFloat64     `json:"Gd_ppm" dc_unit:"ppm" dc_unit_descript:"parts per million (ppm)" dc_description:"Measurement value of Gadolinium (Gd) in ppm."`
+    Dy_ppm                        sql.NullFloat64     `json:"Dy_ppm" dc_unit:"ppm" dc_unit_descript:"parts per million (ppm)" dc_description:"Measurement value of Dysprosium (Dy) in ppm."`
+    Er_ppm                        sql.NullFloat64     `json:"Er_ppm" dc_unit:"ppm" dc_unit_descript:"parts per million (ppm)" dc_description:"Measurement value of Erbium (Er) in ppm."`
+    Yb_ppm                        sql.NullFloat64     `json:"Yb_ppm" dc_unit:"ppm" dc_unit_descript:"parts per million (ppm)" dc_description:"Measurement value of Ytterbium (Yb) in ppm."`
+    Hf_ppm                        sql.NullFloat64     `json:"Hf_ppm" dc_unit:"ppm" dc_unit_descript:"parts per million (ppm)" dc_description:"Measurement value of Hafnium (Hf) in ppm."`
+    Pb_ppm                        sql.NullFloat64     `json:"Pb_ppm" dc_unit:"ppm" dc_unit_descript:"parts per million (ppm)" dc_description:"Measurement value of Lead (Pb) in ppm."`
+    Ga_ppm                        sql.NullFloat64     `json:"Ga_ppm" dc_unit:"ppm" dc_unit_descript:"parts per million (ppm)" dc_description:"Measurement value of Gallium (Ga) in ppm."`
+    Zn_ppm                        sql.NullFloat64     `json:"Zn_ppm" dc_unit:"ppm" dc_unit_descript:"parts per million (ppm)" dc_description:"Measurement value of Zinc (Zn) in ppm."`
+    Cu_ppm                        sql.NullFloat64     `json:"Cu_ppm" dc_unit:"ppm" dc_unit_descript:"parts per million (ppm)" dc_description:"Measurement value of Copper (Cu) in ppm."`
+    Ni_ppm                        sql.NullFloat64     `json:"Ni_ppm" dc_unit:"ppm" dc_unit_descript:"parts per million (ppm)" dc_description:"Measurement value of Nickel (Ni) in ppm."`
+    Cr_ppm                        sql.NullFloat64     `json:"Cr_ppm" dc_unit:"ppm" dc_unit_descript:"parts per million (ppm)" dc_description:"Measurement value of Chromium (Cr) in ppm."`
+    V_ppm                         sql.NullFloat64     `json:"V_ppm" dc_unit:"ppm" dc_unit_descript:"parts per million (ppm)" dc_description:"Measurement value of Vanadium in ppm."`
+    Ce_ppm                        sql.NullFloat64     `json:"Ce_ppm" dc_unit:"ppm" dc_unit_descript:"parts per million (ppm)" dc_description:"Measurement value of Cerium (Ce) in ppm."`
+    Ba_ppm                        sql.NullFloat64     `json:"Ba_ppm" dc_unit:"ppm" dc_unit_descript:"parts per million (ppm)" dc_description:"Measurement value of Barium (Ba) in ppm."`
+    Cs_ppm                        sql.NullFloat64     `json:"Cs_ppm" dc_unit:"ppm" dc_unit_descript:"parts per million (ppm)" dc_description:"Measurement value of Cesium (Cs) in ppm."`
+    La_ppm                        sql.NullFloat64     `json:"La_ppm" dc_unit:"wt%" dc_unit_descript:"weight percent (wt%)" dc_description:"Measurement value of Lanthanum (La) in weight percent (wt%)."`
+    Nd_ppm                        sql.NullFloat64     `json:"Nd_ppm" dc_unit:"ppm" dc_unit_descript:"parts per million (ppm)" dc_description:"Measurement value of Neodymium (Nd) in ppm."`
+    Sm_ppm                        sql.NullFloat64     `json:"Sm_ppm" dc_unit:"ppm" dc_unit_descript:"parts per million (ppm)" dc_description:"Measurement value of Samarium (Sm) in ppm."`

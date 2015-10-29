@@ -1,11 +1,11 @@
-    Leg                            int64                `json:"Leg"`
-    Site                           int64                `json:"Site"`
-    Hole                           string               `json:"Hole"`
-    Core                           int64                `json:"Core"`
-    Core_type                      string               `json:"Core_type"`
-    Top_depth_mbsf                 float64              `json:"Top_depth_mbsf"`
-    Hole_azimuth                   float64              `json:"Hole_azimuth"`
-    Hole_inclination               float64              `json:"Hole_inclination"`
-    Angle_motf                     float64              `json:"Angle_motf"`
-    Angle_mtf                      float64              `json:"Angle_mtf"`
-    Site_variation                 sql.NullFloat64      `json:"Site_variation"`
+    Leg                           int64               `json:"Leg" dc_description:"Number identifying the cruise."`
+    Site                          int64               `json:"Site" dc_description:"Number identifying the site from which the core was retrieved. A site is the position of a beacon around which holes are drilled."`
+    Hole                          string              `json:"Hole" dc_description:"Letter identifying the hole at a site from which a core was retrieved or data was collected."`
+    Core                          int64               `json:"Core" dc_description:"Sequential numbers identifying the cores retrieved from a particular hole."`
+    Core_type                     string              `json:"Core_type" dc_description:"Letter code identifying the drill bit/coring method used to retrieve the core."`
+    Top_depth_mbsf                sql.NullFloat64     `json:"Top_depth_mbsf" dc_unit:"mbsf" dc_unit_descript:"meters below sea floor (mbsf)" dc_description:"Depth value of top of an interval in meters below sea floor (mbsf)."`
+    Hole_azimuth                  float64             `json:"Hole_azimuth" dc_unit:"??" dc_unit_descript:"degrees (??)" dc_description:"OCD_TENSOR_CORE Measurement value of the azimuth of the hole in degrees."`
+    Hole_inclination              sql.NullFloat64     `json:"Hole_inclination" dc_unit:"??" dc_unit_descript:"degrees (??)" dc_description:"Measurement value of the deviation of the hole from vertical in degrees."`
+    Angle_motf                    float64             `json:"Angle_motf" dc_unit:"??" dc_unit_descript:"degrees" dc_description:"Measurement value of the "Magnetic Only tool face angle" in degrees."`
+    Angle_mtf                     float64             `json:"Angle_mtf" dc_unit:"??" dc_unit_descript:"degrees" dc_description:"Measurement value of the angle between magnetic north and the double-line orientation mark on the core liner in degrees; "Magnetic Tool Face" angle."`
+    Site_variation                sql.NullFloat64     `json:"Site_variation" dc_description:"OCD_TENSOR_CORE"`

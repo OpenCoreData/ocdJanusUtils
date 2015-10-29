@@ -1,17 +1,17 @@
-    Leg                            int64                `json:"Leg"`
-    Site                           int64                `json:"Site"`
-    Hole                           string               `json:"Hole"`
-    Core                           int64                `json:"Core"`
-    Core_type                      string               `json:"Core_type"`
-    Section_number                 int64                `json:"Section_number"`
-    Section_type                   string               `json:"Section_type"`
-    Top_cm                         float64              `json:"Top_cm"`
-    Bot_cm                         float64              `json:"Bot_cm"`
-    Depth_mbsf                     float64              `json:"Depth_mbsf"`
-    Location                       string               `json:"Location"`
-    Sample_id                      int64                `json:"Sample_id"`
-    Component_type_code            string               `json:"Component_type_code"`
-    Component_name_code            int64                `json:"Component_name_code"`
-    Component_name                 string               `json:"Component_name"`
-    Abundance_code                 sql.NullString       `json:"Abundance_code"`
-    Thin_section_comment           sql.NullString       `json:"Thin_section_comment"`
+    Leg                           int64               `json:"Leg" dc_description:"Number identifying the cruise."`
+    Site                          int64               `json:"Site" dc_description:"Number identifying the site from which the core was retrieved. A site is the position of a beacon around which holes are drilled."`
+    Hole                          string              `json:"Hole" dc_description:"Letter identifying the hole at a site from which a core was retrieved or data was collected."`
+    Core                          int64               `json:"Core" dc_description:"Sequential numbers identifying the cores retrieved from a particular hole."`
+    Core_type                     string              `json:"Core_type" dc_description:"Letter code identifying the drill bit/coring method used to retrieve the core."`
+    Section_number                int64               `json:"Section_number" dc_description:"Sequential number of a section of a core."`
+    Section_type                  sql.NullString      `json:"Section_type" dc_description:"Type of a section (C=Core Catcher, S=Core)."`
+    Top_cm                        float64             `json:"Top_cm" dc_unit:"cm" dc_unit_descript:"centimeters (cm)" dc_description:"Top value of an interval of a section in cm."`
+    Bot_cm                        float64             `json:"Bot_cm" dc_unit:"cm" dc_unit_descript:"centimeters (cm)" dc_description:"Bottom value of an interval of a section in cm."`
+    Depth_mbsf                    float64             `json:"Depth_mbsf" dc_unit:"mbsf" dc_unit_descript:"meters below sea floor (mbsf)" dc_description:"Depth in meters below sea floor (mbsf)."`
+    Location                      string              `json:"Location" dc_description:"Code that indicates the site where the Janus application is exercised.  Values are SHI(ship), GCR (Gulf Coast Repository), ECR (East Coast Repository) and BRE (Bremen repository)."`
+    Sample_id                     int64               `json:"Sample_id" dc_description:"Identifier (ID) of a sample."`
+    Component_type_code           string              `json:"Component_type_code" dc_description:"Code for type of component in a smear slide; M=Mineral, R=Rock, B=Biogenic, O=Other."`
+    Component_name_code           int64               `json:"Component_name_code" dc_description:"Code number of the component name in a smear slide or sedimentary thin section."`
+    Component_name                string              `json:"Component_name" dc_description:"Name of the component in a smear slide or sedimentary thin section."`
+    Abundance_code                sql.NullString      `json:"Abundance_code" dc_description:"Code for abundance of a component in a thin section or smear slide."`
+    Thin_section_comment          sql.NullString      `json:"Thin_section_comment" dc_description:"Remark on a thin section."`

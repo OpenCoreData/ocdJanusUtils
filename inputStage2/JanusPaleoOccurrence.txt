@@ -1,32 +1,32 @@
-    Leg                            int64                `json:"Leg"`
-    Site                           int64                `json:"Site"`
-    Hole                           string               `json:"Hole"`
-    Core                           int64                `json:"Core"`
-    Core_type                      string               `json:"Core_type"`
-    Section_number                 int64                `json:"Section_number"`
-    Section_type                   string               `json:"Section_type"`
-    Top_cm                         float64              `json:"Top_cm"`
-    Bot_cm                         float64              `json:"Bot_cm"`
-    Depth_mbsf                     float64              `json:"Depth_mbsf"`
-    Fossil_group                   int64                `json:"Fossil_group"`
-    Fossil_group_name              string               `json:"Fossil_group_name"`
-    Taxon_id                       int64                `json:"Taxon_id"`
-    Genus_subgenus                 string               `json:"Genus_subgenus"`
-    Species_subspecies             string               `json:"Species_subspecies"`
-    Contaminated_reworked          sql.NullString       `json:"Contaminated_reworked"`
-    Taxon_relative_abundance       sql.NullString       `json:"Taxon_relative_abundance"`
-    Taxon_numeric_abundance        sql.NullInt64        `json:"Taxon_numeric_abundance"`
-    Taxon_percent_abundance        sql.NullFloat64      `json:"Taxon_percent_abundance"`
-    Presence_absence_flag          sql.NullString       `json:"Presence_absence_flag"`
-    Sample_geologic_age_old        sql.NullString       `json:"Sample_geologic_age_old"`
-    Sample_geologic_age_young      sql.NullString       `json:"Sample_geologic_age_young"`
-    Sample_zone_old                sql.NullString       `json:"Sample_zone_old"`
-    Sample_zone_young              sql.NullString       `json:"Sample_zone_young"`
-    Sample_group_abundance         sql.NullString       `json:"Sample_group_abundance"`
-    Sample_preservation            sql.NullString       `json:"Sample_preservation"`
-    Sample_id                      int64                `json:"Sample_id"`
-    Location                       string               `json:"Location"`
-    Post_cruise_flag               string               `json:"Post_cruise_flag"`
-    Scientist_last_name            sql.NullString       `json:"Scientist_last_name"`
-    Scientist_first_name           sql.NullString       `json:"Scientist_first_name"`
-    Taxon_comment                  sql.NullString       `json:"Taxon_comment"`
+    Leg                           int64               `json:"Leg" dc_description:"Number identifying the cruise."`
+    Site                          int64               `json:"Site" dc_description:"Number identifying the site from which the core was retrieved. A site is the position of a beacon around which holes are drilled."`
+    Hole                          string              `json:"Hole" dc_description:"Letter identifying the hole at a site from which a core was retrieved or data was collected."`
+    Core                          int64               `json:"Core" dc_description:"Sequential numbers identifying the cores retrieved from a particular hole."`
+    Core_type                     string              `json:"Core_type" dc_description:"Letter code identifying the drill bit/coring method used to retrieve the core."`
+    Section_number                int64               `json:"Section_number" dc_description:"Sequential number of a section of a core."`
+    Section_type                  sql.NullString      `json:"Section_type" dc_description:"Type of a section (C=Core Catcher, S=Core)."`
+    Top_cm                        float64             `json:"Top_cm" dc_unit:"cm" dc_unit_descript:"centimeters (cm)" dc_description:"Top value of an interval of a section in cm."`
+    Bot_cm                        float64             `json:"Bot_cm" dc_unit:"cm" dc_unit_descript:"centimeters (cm)" dc_description:"Bottom value of an interval of a section in cm."`
+    Depth_mbsf                    float64             `json:"Depth_mbsf" dc_unit:"mbsf" dc_unit_descript:"meters below sea floor (mbsf)" dc_description:"Depth in meters below sea floor (mbsf)."`
+    Fossil_group                  int64               `json:"Fossil_group" dc_description:"Identifier (ID) of a fossil group."`
+    Fossil_group_name             string              `json:"Fossil_group_name" dc_description:"Name of a fossil group."`
+    Taxon_id                      int64               `json:"Taxon_id" dc_description:"Identifier (ID) of a fossil taxon."`
+    Genus_subgenus                string              `json:"Genus_subgenus" dc_description:"Name of the Genus/subgenus of a fossil taxon."`
+    Species_subspecies            string              `json:"Species_subspecies" dc_description:"Name of the species/subspecies of a fossil taxon."`
+    Contaminated_reworked         sql.NullString      `json:"Contaminated_reworked" dc_description:"Flag for Contamination (C) or Reworked (R) specimen in sample."`
+    Taxon_relative_abundance      sql.NullString      `json:"Taxon_relative_abundance" dc_description:"Qualitative relative abundance of a fossil taxon in a sample."`
+    Taxon_numeric_abundance       sql.NullInt64       `json:"Taxon_numeric_abundance" dc_unit:"ct" dc_unit_descript:"count (ct)" dc_description:"Abundance numeric count of a fossil taxon in a sample."`
+    Taxon_percent_abundance       sql.NullFloat64     `json:"Taxon_percent_abundance" dc_unit:"%" dc_unit_descript:"percent (%)" dc_description:"Abundance percentage of a fossil taxon in a sample."`
+    Presence_absence_flag         sql.NullString      `json:"Presence_absence_flag" dc_description:"Flag to indicate presence or absence of a taxon."`
+    Sample_geologic_age_old       sql.NullString      `json:"Sample_geologic_age_old" dc_description:"Oldest possible geologic age of a sample."`
+    Sample_geologic_age_young     sql.NullString      `json:"Sample_geologic_age_young" dc_description:"Youngest possible geologic age of a sample."`
+    Sample_zone_old               sql.NullString      `json:"Sample_zone_old" dc_description:"Code for oldest possible fossil zone of sample."`
+    Sample_zone_young             sql.NullString      `json:"Sample_zone_young" dc_description:"Code for youngest possible fossil zone of sample."`
+    Sample_group_abundance        sql.NullString      `json:"Sample_group_abundance" dc_description:"Code for qualitative assessment of fossil group abundance in a sample."`
+    Sample_preservation           sql.NullString      `json:"Sample_preservation" dc_description:"Code for qualitative assessment of fossil group preservation in a sample."`
+    Sample_id                     int64               `json:"Sample_id" dc_description:"Identifier (ID) of a sample."`
+    Location                      string              `json:"Location" dc_description:"Code that indicates the site where the Janus application is exercised.  Values are SHI(ship), GCR (Gulf Coast Repository), ECR (East Coast Repository) and BRE (Bremen repository)."`
+    Post_cruise_flag              string              `json:"Post_cruise_flag" dc_description:"Flag to indicate analysis done post-cruise."`
+    Scientist_last_name           sql.NullString      `json:"Scientist_last_name" dc_description:"Last name of a scientist."`
+    Scientist_first_name          sql.NullString      `json:"Scientist_first_name" dc_description:"First name of a scientist."`
+    Taxon_comment                 sql.NullString      `json:"Taxon_comment" dc_description:"Remark on a fossil taxon in a sample."`

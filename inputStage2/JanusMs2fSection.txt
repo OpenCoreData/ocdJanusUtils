@@ -1,20 +1,20 @@
-    Leg                            int64                `json:"Leg"`
-    Site                           int64                `json:"Site"`
-    Hole                           string               `json:"Hole"`
-    Core                           int64                `json:"Core"`
-    Core_type                      string               `json:"Core_type"`
-    Section_number                 int64                `json:"Section_number"`
-    Section_type                   string               `json:"Section_type"`
-    Top_cm                         float64              `json:"Top_cm"`
-    Depth_mbsf                     float64              `json:"Depth_mbsf"`
-    Section_id                     int64                `json:"Section_id"`
-    Magnetic_susceptibility        float64              `json:"Magnetic_susceptibility"`
-    Corrected_susceptibility       sql.NullString       `json:"Corrected_susceptibility"`
-    Run_number                     string               `json:"Run_number"`
-    Run_timestamp                  string               `json:"Run_timestamp"`
-    Avg_magnetic_susceptibility    float64              `json:"Avg_magnetic_susceptibility"`
-    Core_temperature               float64              `json:"Core_temperature"`
-    Probe_temperature              float64              `json:"Probe_temperature"`
-    Drift_corr_susceptibility      float64              `json:"Drift_corr_susceptibility"`
-    Actual_daq_period              float64              `json:"Actual_daq_period"`
-    Offset                         float64              `json:"Offset"`
+    Leg                           int64               `json:"Leg" dc_description:"Number identifying the cruise."`
+    Site                          int64               `json:"Site" dc_description:"Number identifying the site from which the core was retrieved. A site is the position of a beacon around which holes are drilled."`
+    Hole                          string              `json:"Hole" dc_description:"Letter identifying the hole at a site from which a core was retrieved or data was collected."`
+    Core                          int64               `json:"Core" dc_description:"Sequential numbers identifying the cores retrieved from a particular hole."`
+    Core_type                     string              `json:"Core_type" dc_description:"Letter code identifying the drill bit/coring method used to retrieve the core."`
+    Section_number                int64               `json:"Section_number" dc_description:"Sequential number of a section of a core."`
+    Section_type                  sql.NullString      `json:"Section_type" dc_description:"Type of a section (C=Core Catcher, S=Core)."`
+    Top_cm                        float64             `json:"Top_cm" dc_unit:"cm" dc_unit_descript:"centimeters (cm)" dc_description:"Top value of an interval of a section in cm."`
+    Depth_mbsf                    float64             `json:"Depth_mbsf" dc_unit:"mbsf" dc_unit_descript:"meters below sea floor (mbsf)" dc_description:"Depth in meters below sea floor (mbsf)."`
+    Section_id                    int64               `json:"Section_id" dc_description:"Identifier (ID) of a section of a core."`
+    Magnetic_susceptibility       float64             `json:"Magnetic_susceptibility" dc_unit:"SI" dc_unit_descript:"SI" dc_description:"Measurement value of magnetic susceptibility in SI units."`
+    Corrected_susceptibility      sql.NullString      `json:"Corrected_susceptibility" dc_unit:"SI" dc_unit_descript:"SI" dc_description:"Measurement value of calculated correction of magnetic susceptibility."`
+    Run_number                    string              `json:"Run_number" dc_description:"Number for a run for an analysis."`
+    Run_timestamp                 sql.NullString      `json:"Run_timestamp" dc_description:"Date/time of an analysis run."`
+    Avg_magnetic_susceptibility   float64             `json:"Avg_magnetic_susceptibility" dc_unit:"SI" dc_unit_descript:"SI" dc_description:"The average measured susceptibility value in unitless volume susceptibility."`
+    Core_temperature              sql.NullFloat64     `json:"Core_temperature" dc_unit:"??C" dc_unit_descript:"degrees Celcius (??C)" dc_description:"Measurement value of temperature of a core in degrees celcius."`
+    Probe_temperature             float64             `json:"Probe_temperature" dc_unit:"??C" dc_unit_descript:"degrees Celcius (??C)" dc_description:"Measurement value of the temperature of the probe in celcius degrees."`
+    Drift_corr_susceptibility     float64             `json:"Drift_corr_susceptibility" dc_unit:"SI" dc_unit_descript:"SI" dc_description:"Measurement value of magnetic susceptibility corrected for instrumentation drift."`
+    Actual_daq_period             sql.NullFloat64     `json:"Actual_daq_period" dc_unit:"s" dc_unit_descript:"seconds (s)" dc_description:"The actual data acquisition period used for measurements in seconds."`
+    Offset                        float64             `json:"Offset" dc_unit:"mm" dc_unit_descript:"millimeters (mm)" dc_description:"Distance core needed to be lowered from sensor in mm."`

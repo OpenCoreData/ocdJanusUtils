@@ -1,14 +1,15 @@
-    Leg                            int64                `json:"Leg"`
-    Site                           int64                `json:"Site"`
-    Hole                           string               `json:"Hole"`
-    Core                           int64                `json:"Core"`
-    Core_type                      string               `json:"Core_type"`
-    Top_depth_mbsf                 float64              `json:"Top_depth_mbsf"`
-    Bot_depth_mbsf                 float64              `json:"Bot_depth_mbsf"`
-    Run_number                     int64                `json:"Run_number"`
-    Dht_comment                    sql.NullFloat64      `json:"Dht_comment"`
-    Best_fit_temperature           sql.NullFloat64      `json:"Best_fit_temperature"`
-    Best_fit_error                 sql.NullFloat64      `json:"Best_fit_error"`
-    Mudline_temperature            sql.NullFloat64      `json:"Mudline_temperature"`
-    Tool_name                      string               `json:"Tool_name"`
-    Run_comment                    sql.NullString       `json:"Run_comment"`
+    Leg                           int64               `json:"Leg" dc_description:"Number identifying the cruise."`
+    Site                          int64               `json:"Site" dc_description:"Number identifying the site from which the core was retrieved. A site is the position of a beacon around which holes are drilled."`
+    Hole                          string              `json:"Hole" dc_description:"Letter identifying the hole at a site from which a core was retrieved or data was collected."`
+    Core                          int64               `json:"Core" dc_description:"Sequential numbers identifying the cores retrieved from a particular hole."`
+    Core_type                     string              `json:"Core_type" dc_description:"Letter code identifying the drill bit/coring method used to retrieve the core."`
+    Top_depth_mbsf                sql.NullFloat64     `json:"Top_depth_mbsf" dc_unit:"mbsf" dc_unit_descript:"meters below sea floor (mbsf)" dc_description:"Depth value of top of an interval in meters below sea floor (mbsf)."`
+    Bot_depth_mbsf                float64             `json:"Bot_depth_mbsf" dc_unit:"mbsf" dc_unit_descript:"meters below sea floor (mbsf)" dc_description:"Bottom depth value in meters below sea floor (mbsf)."`
+    Run_number                    int64               `json:"Run_number" dc_description:"Number for a run for an analysis."`
+    Run_number                    string              `json:"Run_number" dc_description:"Number for a run for an analysis."`
+    Dht_comment                   sql.NullFloat64     `json:"Dht_comment" dc_description:"Comment on downhole temperature measurement."`
+    Best_fit_temperature          sql.NullFloat64     `json:"Best_fit_temperature" dc_unit:"??C" dc_unit_descript:"degrees Celcius (??C)" dc_description:"Measurement value of best-fit downhole temperature in degrees celcius."`
+    Best_fit_error                sql.NullFloat64     `json:"Best_fit_error" dc_unit:"??C" dc_unit_descript:"degrees Celcius (??C)" dc_description:"Measurement value of best-fit error in degrees celcius."`
+    Mudline_temperature           sql.NullFloat64     `json:"Mudline_temperature" dc_unit:"??C" dc_unit_descript:"degrees Celcius (??C)" dc_description:"Measurement value of the temperature at mudline in degrees celcius."`
+    Tool_name                     string              `json:"Tool_name" dc_description:"Name of the tool used for measurement."`
+    Run_comment                   sql.NullString      `json:"Run_comment" dc_description:"Remark on a run for analysis."`

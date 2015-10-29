@@ -1,13 +1,13 @@
-    Leg                            int64                `json:"Leg"`
-    Site                           int64                `json:"Site"`
-    Hole                           string               `json:"Hole"`
-    Core                           int64                `json:"Core"`
-    Core_type                      string               `json:"Core_type"`
-    Section_number                 int64                `json:"Section_number"`
-    Section_type                   string               `json:"Section_type"`
-    Top_cm                         float64              `json:"Top_cm"`
-    Depth_mbsf                     float64              `json:"Depth_mbsf"`
-    Data_type_abbr                 string               `json:"Data_type_abbr"`
-    Fossil_group_name              sql.NullString       `json:"Fossil_group_name"`
-    Page_id                        int64                `json:"Page_id"`
-    Url                            string               `json:"Url"`
+    Leg                           int64               `json:"Leg" dc_description:"Number identifying the cruise."`
+    Site                          int64               `json:"Site" dc_description:"Number identifying the site from which the core was retrieved. A site is the position of a beacon around which holes are drilled."`
+    Hole                          string              `json:"Hole" dc_description:"Letter identifying the hole at a site from which a core was retrieved or data was collected."`
+    Core                          int64               `json:"Core" dc_description:"Sequential numbers identifying the cores retrieved from a particular hole."`
+    Core_type                     string              `json:"Core_type" dc_description:"Letter code identifying the drill bit/coring method used to retrieve the core."`
+    Section_number                int64               `json:"Section_number" dc_description:"Sequential number of a section of a core."`
+    Section_type                  sql.NullString      `json:"Section_type" dc_description:"Type of a section (C=Core Catcher, S=Core)."`
+    Top_cm                        float64             `json:"Top_cm" dc_unit:"cm" dc_unit_descript:"centimeters (cm)" dc_description:"Top value of an interval of a section in cm."`
+    Depth_mbsf                    float64             `json:"Depth_mbsf" dc_unit:"mbsf" dc_unit_descript:"meters below sea floor (mbsf)" dc_description:"Depth in meters below sea floor (mbsf)."`
+    Data_type_abbr                string              `json:"Data_type_abbr" dc_description:"Data type of an image."`
+    Fossil_group_name             sql.NullString      `json:"Fossil_group_name" dc_description:"Name of a fossil group."`
+    Page_id                       int64               `json:"Page_id" dc_description:"Identifier (ID) for order of image for same data type and same stratigraphic level (core, section, interval or depth)."`
+    Url                           string              `json:"Url" dc_description:"Uniform Resource Locator (URL) for the image available on the internet."`

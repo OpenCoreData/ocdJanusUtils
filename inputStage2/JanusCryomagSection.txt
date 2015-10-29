@@ -1,24 +1,24 @@
-    Leg                            int64                `json:"Leg"`
-    Site                           int64                `json:"Site"`
-    Hole                           string               `json:"Hole"`
-    Core                           int64                `json:"Core"`
-    Core_type                      string               `json:"Core_type"`
-    Section_number                 int64                `json:"Section_number"`
-    Section_type                   string               `json:"Section_type"`
-    Top_cm                         float64              `json:"Top_cm"`
-    Depth_mbsf                     float64              `json:"Depth_mbsf"`
-    Section_id                     int64                `json:"Section_id"`
-    Treatment_type                 string               `json:"Treatment_type"`
-    Treatment_demag                sql.NullFloat64      `json:"Treatment_demag"`
-    Treatment_bias                 sql.NullFloat64      `json:"Treatment_bias"`
-    Demag_type                     string               `json:"Demag_type"`
-    Demag_level                    float64              `json:"Demag_level"`
-    Declination                    float64              `json:"Declination"`
-    Inclination                    float64              `json:"Inclination"`
-    Intensity                      float64              `json:"Intensity"`
-    Hole_inclination               sql.NullFloat64      `json:"Hole_inclination"`
-    Intensity_x                    float64              `json:"Intensity_x"`
-    Intensity_y                    float64              `json:"Intensity_y"`
-    Intensity_z                    float64              `json:"Intensity_z"`
-    Run_number                     int64                `json:"Run_number"`
-    Run_comment                    sql.NullString       `json:"Run_comment"`
+    Leg                           int64               `json:"Leg" dc_description:"Number identifying the cruise."`
+    Site                          int64               `json:"Site" dc_description:"Number identifying the site from which the core was retrieved. A site is the position of a beacon around which holes are drilled."`
+    Hole                          string              `json:"Hole" dc_description:"Letter identifying the hole at a site from which a core was retrieved or data was collected."`
+    Core                          int64               `json:"Core" dc_description:"Sequential numbers identifying the cores retrieved from a particular hole."`
+    Core_type                     string              `json:"Core_type" dc_description:"Letter code identifying the drill bit/coring method used to retrieve the core."`
+    Section_number                int64               `json:"Section_number" dc_description:"Sequential number of a section of a core."`
+    Section_type                  sql.NullString      `json:"Section_type" dc_description:"Type of a section (C=Core Catcher, S=Core)."`
+    Top_cm                        float64             `json:"Top_cm" dc_unit:"cm" dc_unit_descript:"centimeters (cm)" dc_description:"Top value of an interval of a section in cm."`
+    Depth_mbsf                    float64             `json:"Depth_mbsf" dc_unit:"mbsf" dc_unit_descript:"meters below sea floor (mbsf)" dc_description:"Depth in meters below sea floor (mbsf)."`
+    Section_id                    int64               `json:"Section_id" dc_description:"Identifier (ID) of a section of a core."`
+    Treatment_type                string              `json:"Treatment_type" dc_description:"System used for applying alternating frequencies or thermal demagnetizations to samples."`
+    Treatment_demag               sql.NullFloat64     `json:"Treatment_demag" dc_unit:"mT" dc_unit_descript:"milleteslas (mT)" dc_description:"Values expected between 0.0 to 9999.9 mT."`
+    Treatment_bias                sql.NullFloat64     `json:"Treatment_bias" dc_unit:"mT" dc_unit_descript:"milleteslas (mT)" dc_description:"Values expected for ARM between 0.000 to 1.000 mT, and for IRM between 1.0 to 3000.0 mT."`
+    Demag_type                    string              `json:"Demag_type" dc_description:"Type of demagnetization system used for measurement - AFD (integrated sub-system of the cryomagnetometer), AFDD (DTek), THD (thermal demag unit)."`
+    Demag_level                   float64             `json:"Demag_level" dc_unit:"mT / ??C" dc_unit_descript:"milleteslas (mT) or degrees Celcius (??C)" dc_description:"Measurement value of the level of demagnetization in milliteslas (mT) if AF or deg. C. if thermal."`
+    Declination                   float64             `json:"Declination" dc_unit:"??" dc_unit_descript:"degrees" dc_description:"Measurement value of the orientation of the magnetic field of the sample (the field acquired at the time of the rock formation). The angle between geographic north and the magnetic field direction (the magnetic azimuth)."`
+    Inclination                   float64             `json:"Inclination" dc_description:"Measurement value of the orientation of the magnetic field of a sample (the field acquired at the time of the rock formation), and angle between the horizontal and the field direction measured positive downward, in degrees."`
+    Intensity                     float64             `json:"Intensity" dc_unit:"amp/m" dc_unit_descript:"ampere per meter (amp/m)" dc_description:"OCD_CRYOMAG_SECTION  Measurement value of the intensity in amp/m."`
+    Hole_inclination              sql.NullFloat64     `json:"Hole_inclination" dc_unit:"??" dc_unit_descript:"degrees (??)" dc_description:"Measurement value of the deviation of the hole from vertical in degrees."`
+    Intensity_x                   float64             `json:"Intensity_x" dc_unit:"amp/m" dc_unit_descript:"ampere per meter (amp/m)" dc_description:"Measurement value of the intensity in the x-direction  that has been corrected for background and/or tray correction, in amp/m."`
+    Intensity_y                   float64             `json:"Intensity_y" dc_unit:"amp/m" dc_unit_descript:"ampere per meter (amp/m)" dc_description:"Measurement value of the intensity in the y-direction  that has been corrected for background and/or tray correction, in amp/m."`
+    Intensity_z                   float64             `json:"Intensity_z" dc_unit:"amp/m" dc_unit_descript:"ampere per meter (amp/m)" dc_description:"Measurement value of the intensity in the z-direction  that has been corrected for background and/or tray correction, in amp/m."`
+    Run_number                    int64               `json:"Run_number" dc_description:"Number for a run for an analysis."`
+    Run_comment                   sql.NullString      `json:"Run_comment" dc_description:"Remark on a run for analysis."`

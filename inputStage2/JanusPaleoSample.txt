@@ -1,24 +1,24 @@
-    Leg                            int64                `json:"Leg"`
-    Site                           int64                `json:"Site"`
-    Hole                           string               `json:"Hole"`
-    Core                           int64                `json:"Core"`
-    Core_type                      string               `json:"Core_type"`
-    Section_number                 int64                `json:"Section_number"`
-    Section_type                   string               `json:"Section_type"`
-    Top_cm                         float64              `json:"Top_cm"`
-    Bot_cm                         float64              `json:"Bot_cm"`
-    Depth_mbsf                     float64              `json:"Depth_mbsf"`
-    Sample_id                      int64                `json:"Sample_id"`
-    Location                       string               `json:"Location"`
-    Fossil_group                   int64                `json:"Fossil_group"`
-    Fossil_group_name              string               `json:"Fossil_group_name"`
-    Geologic_age_old               sql.NullString       `json:"Geologic_age_old"`
-    Geologic_age_young             sql.NullString       `json:"Geologic_age_young"`
-    Zone_old                       sql.NullString       `json:"Zone_old"`
-    Zone_young                     sql.NullString       `json:"Zone_young"`
-    Group_abundance_name           sql.NullString       `json:"Group_abundance_name"`
-    Preservation_name              sql.NullString       `json:"Preservation_name"`
-    Scientist_id                   int64                `json:"Scientist_id"`
-    Scientist_last_name            string               `json:"Scientist_last_name"`
-    Scientist_first_name           sql.NullString       `json:"Scientist_first_name"`
-    Paleo_sample_comment           sql.NullString       `json:"Paleo_sample_comment"`
+    Leg                           int64               `json:"Leg" dc_description:"Number identifying the cruise."`
+    Site                          int64               `json:"Site" dc_description:"Number identifying the site from which the core was retrieved. A site is the position of a beacon around which holes are drilled."`
+    Hole                          string              `json:"Hole" dc_description:"Letter identifying the hole at a site from which a core was retrieved or data was collected."`
+    Core                          int64               `json:"Core" dc_description:"Sequential numbers identifying the cores retrieved from a particular hole."`
+    Core_type                     string              `json:"Core_type" dc_description:"Letter code identifying the drill bit/coring method used to retrieve the core."`
+    Section_number                int64               `json:"Section_number" dc_description:"Sequential number of a section of a core."`
+    Section_type                  sql.NullString      `json:"Section_type" dc_description:"Type of a section (C=Core Catcher, S=Core)."`
+    Top_cm                        float64             `json:"Top_cm" dc_unit:"cm" dc_unit_descript:"centimeters (cm)" dc_description:"Top value of an interval of a section in cm."`
+    Bot_cm                        float64             `json:"Bot_cm" dc_unit:"cm" dc_unit_descript:"centimeters (cm)" dc_description:"Bottom value of an interval of a section in cm."`
+    Depth_mbsf                    float64             `json:"Depth_mbsf" dc_unit:"mbsf" dc_unit_descript:"meters below sea floor (mbsf)" dc_description:"Depth in meters below sea floor (mbsf)."`
+    Sample_id                     int64               `json:"Sample_id" dc_description:"Identifier (ID) of a sample."`
+    Location                      string              `json:"Location" dc_description:"Code that indicates the site where the Janus application is exercised.  Values are SHI(ship), GCR (Gulf Coast Repository), ECR (East Coast Repository) and BRE (Bremen repository)."`
+    Fossil_group                  int64               `json:"Fossil_group" dc_description:"Identifier (ID) of a fossil group."`
+    Fossil_group_name             string              `json:"Fossil_group_name" dc_description:"Name of a fossil group."`
+    Geologic_age_old              sql.NullString      `json:"Geologic_age_old" dc_description:"Name of the oldest geologic age of a paleo sample."`
+    Geologic_age_young            sql.NullString      `json:"Geologic_age_young" dc_description:"Name of the youngest geologic age of a paleo sample."`
+    Zone_old                      sql.NullString      `json:"Zone_old" dc_description:"Oldest possible fossil zone for a sample."`
+    Zone_young                    sql.NullString      `json:"Zone_young" dc_description:"Youngest possible fossil zone for a sample."`
+    Group_abundance_name          sql.NullString      `json:"Group_abundance_name" dc_description:"Name of the abundance for a fossil group in a paleo sample."`
+    Preservation_name             sql.NullString      `json:"Preservation_name" dc_description:"Abbreviation for qualitative assessment of overall preservation state of specimens of a fossil group in a sample."`
+    Scientist_id                  int64               `json:"Scientist_id" dc_description:"Identifier (ID) of a scientist."`
+    Scientist_last_name           sql.NullString      `json:"Scientist_last_name" dc_description:"Last name of a scientist."`
+    Scientist_first_name          sql.NullString      `json:"Scientist_first_name" dc_description:"First name of a scientist."`
+    Paleo_sample_comment          sql.NullString      `json:"Paleo_sample_comment" dc_description:"Remark about a paleo sample."`

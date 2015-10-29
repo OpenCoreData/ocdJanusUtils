@@ -1,17 +1,17 @@
-    Leg                            int64                `json:"Leg"`
-    Site                           int64                `json:"Site"`
-    Hole                           string               `json:"Hole"`
-    Core                           int64                `json:"Core"`
-    Core_type                      string               `json:"Core_type"`
-    Section_number                 int64                `json:"Section_number"`
-    Section_type                   string               `json:"Section_type"`
-    Top_cm                         float64              `json:"Top_cm"`
-    Bot_cm                         float64              `json:"Bot_cm"`
-    Depth_mbsf                     float64              `json:"Depth_mbsf"`
-    Inor_c_wt_pct                  sql.NullFloat64      `json:"Inor_C_wt_pct"`
-    Caco3_wt_pct                   sql.NullFloat64      `json:"CacO3_wt_pct"`
-    Tot_c_wt_pct                   sql.NullFloat64      `json:"Tot_C_wt_pct"`
-    Org_c_wt_pct                   sql.NullFloat64      `json:"Org_C_wt_pct"`
-    Nit_wt_pct                     sql.NullFloat64      `json:"Nit_wt_pct"`
-    Sul_wt_pct                     sql.NullFloat64      `json:"Sul_wt_pct"`
-    H_wt_pct                       sql.NullFloat64      `json:"H_wt_pct"`
+    Leg                           int64               `json:"Leg" dc_description:"Number identifying the cruise."`
+    Site                          int64               `json:"Site" dc_description:"Number identifying the site from which the core was retrieved. A site is the position of a beacon around which holes are drilled."`
+    Hole                          string              `json:"Hole" dc_description:"Letter identifying the hole at a site from which a core was retrieved or data was collected."`
+    Core                          int64               `json:"Core" dc_description:"Sequential numbers identifying the cores retrieved from a particular hole."`
+    Core_type                     string              `json:"Core_type" dc_description:"Letter code identifying the drill bit/coring method used to retrieve the core."`
+    Section_number                int64               `json:"Section_number" dc_description:"Sequential number of a section of a core."`
+    Section_type                  sql.NullString      `json:"Section_type" dc_description:"Type of a section (C=Core Catcher, S=Core)."`
+    Top_cm                        float64             `json:"Top_cm" dc_unit:"cm" dc_unit_descript:"centimeters (cm)" dc_description:"Top value of an interval of a section in cm."`
+    Bot_cm                        float64             `json:"Bot_cm" dc_unit:"cm" dc_unit_descript:"centimeters (cm)" dc_description:"Bottom value of an interval of a section in cm."`
+    Depth_mbsf                    float64             `json:"Depth_mbsf" dc_unit:"mbsf" dc_unit_descript:"meters below sea floor (mbsf)" dc_description:"Depth in meters below sea floor (mbsf)."`
+    Inor_c_wt_pct                 sql.NullFloat64     `json:"Inor_c_wt_pct" dc_unit:"wt%" dc_unit_descript:"weight percent (wt%)" dc_description:"Measurement value of Inorganic Carbon in weight percent (wt%)."`
+    Caco3_wt_pct                  sql.NullFloat64     `json:"Caco3_wt_pct" dc_unit:"wt%" dc_unit_descript:"weight percent (wt%)" dc_description:"Measurement value of Calcium Carbonate (CaCO3) in weight percent (wt%)."`
+    Tot_c_wt_pct                  sql.NullFloat64     `json:"Tot_c_wt_pct" dc_unit:"wt%" dc_unit_descript:"weight percent (wt%)" dc_description:"Measurement value of Total Carbon in weight percent (wt%)."`
+    Org_c_wt_pct                  sql.NullFloat64     `json:"Org_c_wt_pct" dc_unit:"wt%" dc_unit_descript:"weight percent (wt%)" dc_description:"Measurement value of Organic Carbon in weight percent (wt%)."`
+    Nit_wt_pct                    sql.NullFloat64     `json:"Nit_wt_pct" dc_unit:"wt%" dc_unit_descript:"weight percent (wt%)" dc_description:"Measurement value of Nitrogen (N) in weight percent (wt%)."`
+    Sul_wt_pct                    sql.NullFloat64     `json:"Sul_wt_pct" dc_unit:"wt%" dc_unit_descript:"weight percent (wt%)" dc_description:"Measurement value of of Sulfur in weight percent (wt%)."`
+    H_wt_pct                      sql.NullFloat64     `json:"H_wt_pct" dc_unit:"wt%" dc_unit_descript:"weight percent (wt%)" dc_description:"Measurement value of Hydrogen (H) in weight percent (wt%)."`

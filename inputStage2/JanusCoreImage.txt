@@ -1,12 +1,12 @@
-    Leg                            int64                `json:"Leg"`
-    Site                           int64                `json:"Site"`
-    Hole                           string               `json:"Hole"`
-    Core                           int64                `json:"Core"`
-    Core_type                      string               `json:"Core_type"`
-    Section_number                 sql.NullInt64        `json:"Section_number"`
-    Section_type                   sql.NullString       `json:"Section_type"`
-    Top_depth_mbsf                 sql.NullFloat64      `json:"Top_depth_mbsf"`
-    Core_image_type                sql.NullString       `json:"Core_image_type"`
-    Image_format                   sql.NullString       `json:"Image_format"`
-    Image_resolution               sql.NullInt64        `json:"Image_resolution"`
-    Url                            sql.NullString       `json:"Url"`
+    Leg                           int64               `json:"Leg" dc_description:"Number identifying the cruise."`
+    Site                          int64               `json:"Site" dc_description:"Number identifying the site from which the core was retrieved. A site is the position of a beacon around which holes are drilled."`
+    Hole                          string              `json:"Hole" dc_description:"Letter identifying the hole at a site from which a core was retrieved or data was collected."`
+    Core                          int64               `json:"Core" dc_description:"Sequential numbers identifying the cores retrieved from a particular hole."`
+    Core_type                     string              `json:"Core_type" dc_description:"Letter code identifying the drill bit/coring method used to retrieve the core."`
+    Section_number                sql.NullInt64       `json:"Section_number" dc_description:"Sequential number of a section of a core."`
+    Section_type                  sql.NullString      `json:"Section_type" dc_description:"Type of a section (C=Core Catcher, S=Core)."`
+    Top_depth_mbsf                sql.NullFloat64     `json:"Top_depth_mbsf" dc_unit:"mbsf" dc_unit_descript:"meters below sea floor (mbsf)" dc_description:"Depth value of top of an interval in meters below sea floor (mbsf)."`
+    Core_image_type               sql.NullString      `json:"Core_image_type" dc_description:"Type of image for a core, either CORE for all of a core or SECTION for a section of a core."`
+    Image_format                  sql.NullString      `json:"Image_format" dc_description:"File image format of an image (TIF,JPG,PDF)."`
+    Image_resolution              sql.NullInt64       `json:"Image_resolution" dc_unit:"dpi" dc_unit_descript:"dots per inch (dpi)" dc_description:"Resolution of the image in dpi."`
+    Url                           sql.NullString      `json:"Url" dc_description:"Uniform Resource Locator (URL) for the image available on the internet."`

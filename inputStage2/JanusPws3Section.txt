@@ -1,33 +1,33 @@
-    Leg                            int64                `json:"Leg"`
-    Site                           int64                `json:"Site"`
-    Hole                           string               `json:"Hole"`
-    Core                           int64                `json:"Core"`
-    Core_type                      string               `json:"Core_type"`
-    Section_number                 int64                `json:"Section_number"`
-    Section_type                   string               `json:"Section_type"`
-    Top_cm                         float64              `json:"Top_cm"`
-    Bot_cm                         float64              `json:"Bot_cm"`
-    Depth_mbsf                     float64              `json:"Depth_mbsf"`
-    Section_id                     int64                `json:"Section_id"`
-    Direction                      sql.NullString       `json:"Direction"`
-    Velocity                       sql.NullFloat64      `json:"Velocity"`
-    Run_number                     int64                `json:"Run_number"`
-    Run_timestamp                  sql.NullString       `json:"Run_timestamp"`
-    Core_temperature               sql.NullFloat64      `json:"Core_temperature"`
-    Liner_correction               sql.NullString       `json:"Liner_correction"`
-    Raw_data_collected             sql.NullString       `json:"Raw_data_collected"`
-    Standard_name                  sql.NullString       `json:"Standard_name"`
-    Standard_set_name              sql.NullString       `json:"Standard_set_name"`
-    Expected_velocity              sql.NullFloat64      `json:"Expected_velocity"`
-    Measurement_no                 sql.NullInt64        `json:"Measurement_no"`
-    Meas_separation_mean           sql.NullFloat64      `json:"Meas_separation_mean"`
-    Meas_time_mean                 sql.NullFloat64      `json:"Meas_time_mean"`
-    Contact_pressure               sql.NullFloat64      `json:"Contact_pressure"`
-    Liner_thickness                sql.NullFloat64      `json:"Liner_thickness"`
-    Calibration_timestamp          sql.NullString       `json:"Calibration_timestamp"`
-    Calib_separation_m0            sql.NullFloat64      `json:"Calibration_separation_m0"`
-    Calib_separation_m1            sql.NullFloat64      `json:"Calibration_separation_m1"`
-    Calib_separation_mse           sql.NullFloat64      `json:"Calibration_separation_mse"`
-    Calib_time_m0                  sql.NullFloat64      `json:"Calibration_time_m0"`
-    Calib_time_m1                  sql.NullFloat64      `json:"Calibration_time_m1"`
-    Calib_time_mse                 sql.NullFloat64      `json:"Calibration_time_mse"`
+    Leg                           int64               `json:"Leg" dc_description:"Number identifying the cruise."`
+    Site                          int64               `json:"Site" dc_description:"Number identifying the site from which the core was retrieved. A site is the position of a beacon around which holes are drilled."`
+    Hole                          string              `json:"Hole" dc_description:"Letter identifying the hole at a site from which a core was retrieved or data was collected."`
+    Core                          int64               `json:"Core" dc_description:"Sequential numbers identifying the cores retrieved from a particular hole."`
+    Core_type                     string              `json:"Core_type" dc_description:"Letter code identifying the drill bit/coring method used to retrieve the core."`
+    Section_number                int64               `json:"Section_number" dc_description:"Sequential number of a section of a core."`
+    Section_type                  sql.NullString      `json:"Section_type" dc_description:"Type of a section (C=Core Catcher, S=Core)."`
+    Top_cm                        float64             `json:"Top_cm" dc_unit:"cm" dc_unit_descript:"centimeters (cm)" dc_description:"Top value of an interval of a section in cm."`
+    Bot_cm                        float64             `json:"Bot_cm" dc_unit:"cm" dc_unit_descript:"centimeters (cm)" dc_description:"Bottom value of an interval of a section in cm."`
+    Depth_mbsf                    float64             `json:"Depth_mbsf" dc_unit:"mbsf" dc_unit_descript:"meters below sea floor (mbsf)" dc_description:"Depth in meters below sea floor (mbsf)."`
+    Section_id                    int64               `json:"Section_id" dc_description:"Identifier (ID) of a section of a core."`
+    Direction                     sql.NullString      `json:"Direction" dc_description:"Direction of measurement relative to a section of a core - X, Y, or Z.  X is into the working half."`
+    Velocity                      sql.NullFloat64     `json:"Velocity" dc_unit:"m/s" dc_unit_descript:"meters per second (m/s)" dc_description:"Measurement value of velocity in m/s."`
+    Run_number                    int64               `json:"Run_number" dc_description:"Number for a run for an analysis."`
+    Run_timestamp                 sql.NullString      `json:"Run_timestamp" dc_description:"Date/time of an analysis run."`
+    Core_temperature              sql.NullFloat64     `json:"Core_temperature" dc_unit:"??C" dc_unit_descript:"degrees Celcius (??C)" dc_description:"Measurement value of temperature of a core in degrees celcius."`
+    Liner_correction              sql.NullString      `json:"Liner_correction" dc_description:"Flag for if liner correction was applied to measurement."`
+    Raw_data_collected            sql.NullString      `json:"Raw_data_collected" dc_description:"Flag to indicate if raw data was collected in association with measurement results for an instrument."`
+    Standard_name                 sql.NullString      `json:"Standard_name" dc_description:"Name of physical properties standard."`
+    Standard_set_name             sql.NullString      `json:"Standard_set_name" dc_description:"Name for a set of a physical properties standard."`
+    Expected_velocity             sql.NullFloat64     `json:"Expected_velocity" dc_unit:"m/s" dc_unit_descript:"meters per second (m/s)" dc_description:"Value of expected velocity based on a standard in meters per second."`
+    Measurement_no                sql.NullInt64       `json:"Measurement_no" dc_description:"The number of the measurement taken to differentiate multiple measurements taken at the same interval."`
+    Meas_separation_mean          sql.NullFloat64     `json:"Meas_separation_mean" dc_unit:"mm" dc_unit_descript:"millimeters (mm)" dc_description:"Measurement value of the distance between a pair of transducers in mm."`
+    Meas_time_mean                sql.NullFloat64     `json:"Meas_time_mean" dc_unit:"??s" dc_unit_descript:"microseconds (??s)" dc_description:"Measurement value of the transit time for a wave to travel between transducers in microseconds."`
+    Contact_pressure              sql.NullFloat64     `json:"Contact_pressure" dc_description:"Contact pressure applied."`
+    Liner_thickness               sql.NullFloat64     `json:"Liner_thickness" dc_unit:"mm" dc_unit_descript:"millimeters (mm)" dc_description:"Thickness of core liner in mm. If liner correction = No then this value is zero."`
+    Calibration_timestamp         sql.NullString      `json:"Calibration_timestamp" dc_description:"Date and time of calibration."`
+    Calib_separation_m0           sql.NullFloat64     `json:"Calib_separation_m0" dc_description:"Calibration separation intercept."`
+    Calib_separation_m1           sql.NullFloat64     `json:"Calib_separation_m1" dc_description:"Calibration separation slope."`
+    Calib_separation_mse          sql.NullFloat64     `json:"Calib_separation_mse" dc_description:"Calibration separation mean squared error."`
+    Calib_time_m0                 sql.NullFloat64     `json:"Calib_time_m0" dc_description:"Calibration time intercept."`
+    Calib_time_m1                 sql.NullFloat64     `json:"Calib_time_m1" dc_description:"Calibration time slope."`
+    Calib_time_mse                sql.NullFloat64     `json:"Calib_time_mse" dc_description:"Calibration time mean squared error."`
