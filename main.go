@@ -22,15 +22,17 @@ type CodeItems struct {
 
 func main() {
 
-	Funcnames := []string{"JanusAgeDatapoint", "JanusAgeProfile", "JanusChemCarb", "JanusCoreImage", "JanusCoreSummary",
-		"JanusCryomagSection", "JanusDhtApct", "JanusGraSection", "JanusIcpSample", "JanusMadSection",
-		"JanusMs2fSection", "JanusMsclSection", "JanusMslSection", "JanusNcrSection", "JanusNgrSection",
-		"JanusPaleoImage", "JanusPaleoOccurrence", "JanusPaleoSample", "JanusPrimeDataImage",
-		"JanusPwlSection", "JanusPws1Section", "JanusPws2Section", "JanusPws3Section",
-		"JanusRscSection", "JanusSample", "JanusSedThinSectionSample", "JanusShearStrengthAvs",
-		"JanusShearStrengthPen", "JanusShearStrengthTor", "JanusSmearSlide", "JanusTensorCore",
-		"JanusThermalConductivity", "JanusThinSectionImage", "JanusVcdHardRockImage",
-		"JanusVcdImage", "JanusVcdStructureImage", "JanusXrdImage", "JanusXrfSample"}
+Funcnames := []string{"JanusChemCarbTest"}
+
+	// Funcnames := []string{"JanusAgeDatapoint", "JanusAgeProfile", "JanusChemCarb", "JanusCoreImage", "JanusCoreSummary",
+	// 	"JanusCryomagSection", "JanusDhtApct", "JanusGraSection", "JanusIcpSample", "JanusMadSection",
+	// 	"JanusMs2fSection", "JanusMsclSection", "JanusMslSection", "JanusNcrSection", "JanusNgrSection",
+	// 	"JanusPaleoImage", "JanusPaleoOccurrence", "JanusPaleoSample", "JanusPrimeDataImage",
+	// 	"JanusPwlSection", "JanusPws1Section", "JanusPws2Section", "JanusPws3Section",
+	// 	"JanusRscSection", "JanusSample", "JanusSedThinSectionSample", "JanusShearStrengthAvs",
+	// 	"JanusShearStrengthPen", "JanusShearStrengthTor", "JanusSmearSlide", "JanusTensorCore",
+	// 	"JanusThermalConductivity", "JanusThinSectionImage", "JanusVcdHardRockImage",
+	// 	"JanusVcdImage", "JanusVcdStructureImage", "JanusXrdImage", "JanusXrfSample"}
 
 	// loop here....
 	for _, entry := range Funcnames {
